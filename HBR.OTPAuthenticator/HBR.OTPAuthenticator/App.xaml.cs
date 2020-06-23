@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HBR.OTPAuthenticator.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace HBR.OTPAuthenticator
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new AddOTP());
         }
 
         protected override void OnStart()
