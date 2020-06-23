@@ -22,7 +22,7 @@ namespace HBR.OTPAuthenticator.BLL.Models
         };
 
         private const bool AllowExportingDefault = false;
-        internal const int TimeStepSeconds = 30;
+        public const int TimeStepSeconds = 30;
 
         public const int MinNumDigits = 6;
         public const int MaxNumDigits = 8;

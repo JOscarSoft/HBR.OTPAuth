@@ -1,4 +1,5 @@
-﻿using HBR.OTPAuthenticator.Views;
+﻿using HBR.OTPAuthenticator.ViewModels;
+using HBR.OTPAuthenticator.Views;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,7 +12,8 @@ namespace HBR.OTPAuthenticator
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new AddOTP());
+            MainViewModel.GetInstance().OTPListModel = new OTPListViewModel();
+            this.MainPage = new NavigationPage(new OTPList());
         }
 
         protected override void OnStart()

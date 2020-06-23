@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HBR.OTPAuthenticator.Views.OTPList"
+             BindingContext="{Binding Main, Source= {StaticResource Locator}}"
+             Title="Listado de Claves">
+    <ContentPage.Content>
+        <StackLayout
+            Padding="8"
+            BindingContext="{Binding OTPListModel}">
+            <ListView
+                HasUnevenRows="True"
+                ItemsSource="{Binding OTPList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout
+                                    Grid.Column="0"
+                                    VerticalOptions="Center">
+                                    <Label
+                                        Text="{Binding OTP}"
+                                        TextColor="DarkBlue"
+                                        FontAttributes="Bold"
+                                        FontSize="Medium">
+                                    </Label>
+                                    <Label
+                                        Text="{Binding OTPInformation}"
+                                        FontAttributes="Bold"
+                                        TextColor="Black">
+                                    </Label>
+                                </StackLayout>
+                                <ProgressBar
+                                    Progress="{Binding Progress}"
+                                    ProgressColor="Red"
+                                    Grid.Column="1">
+                                </ProgressBar>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
