@@ -36,9 +36,9 @@ namespace HBR.OTPAuthenticator.ViewModels
                 Label = Name,
                 SecretBase32 = SecretKey,
                 Issuer = Issuer,
-                AllowExporting = TimeBased
+                TimeBased = TimeBased
             };
-            var storageService = new StorageService();
+            var storageService = new OTPStorageService();
             await storageService.InsertOrReplaceAsync(otp);
             await Application.Current.MainPage.DisplayAlert("Success", "Fuck yeah carajo!!!", "Aceptar");
         }

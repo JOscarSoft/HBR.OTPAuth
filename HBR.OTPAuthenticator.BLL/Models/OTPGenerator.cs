@@ -21,8 +21,8 @@ namespace HBR.OTPAuthenticator.BLL.Models
             { HMacSha512Name, OtpHashMode.Sha512 }
         };
 
-        private const bool AllowExportingDefault = false;
         public const int TimeStepSeconds = 30;
+        public const int ManualStepSeconds = 5;
 
         public const int MinNumDigits = 6;
         public const int MaxNumDigits = 8;
@@ -34,7 +34,7 @@ namespace HBR.OTPAuthenticator.BLL.Models
 
         public string Issuer { get; set; }
 
-        public bool AllowExporting { get; set; }
+        public bool TimeBased { get; set; }
 
         public string AlgorithmName { get; set; }
 
@@ -75,12 +75,16 @@ namespace HBR.OTPAuthenticator.BLL.Models
             Uid = Guid.NewGuid().ToString();
             Label = Issuer = string.Empty;
             AlgorithmName = HMacSha1Name;
-            AllowExporting = AllowExportingDefault;
+            TimeBased = TimeBased;
         }
 
         public string GenerateOTP(DateTime input)
         {
-            var otp = new Totp(Secret, TimeStepSeconds, AlgorithmsMapping[AlgorithmName], NumDigits);
+            var otp = new Totp(Secret, step: ManualStepSeconds, AlgorithmsMapping[AlgorithmName], NumDigits);
+
+            if(TimeBased)
+                otp = new Totp(Secret, TimeStepSeconds, AlgorithmsMapping[AlgorithmName], NumDigits);
+
             return otp.ComputeTotp(input);
         }
 

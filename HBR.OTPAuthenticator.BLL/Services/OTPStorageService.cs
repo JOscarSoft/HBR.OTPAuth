@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace HBR.OTPAuthenticator.BLL.Services
 {
-    public class StorageService
+    public class OTPStorageService
     {
         [Table("OTPGenerator")]
         private class OTPGeneratorInner : OTPGenerator
@@ -31,7 +31,7 @@ namespace HBR.OTPAuthenticator.BLL.Services
                 Uid = input.Uid;
                 Label = input.Label;
                 Issuer = input.Issuer;
-                AllowExporting = input.AllowExporting;
+                TimeBased = input.TimeBased;
                 AlgorithmName = input.AlgorithmName;
                 Secret = input.Secret;
                 NumDigits = input.NumDigits;
@@ -61,7 +61,7 @@ namespace HBR.OTPAuthenticator.BLL.Services
 
         public event ErrorEventHandler ErrorOccurred;
 
-        public StorageService()
+        public OTPStorageService()
         {
            // SecureStorage = secureStorage ?? throw new ArgumentException(nameof(SecureStorage));
 

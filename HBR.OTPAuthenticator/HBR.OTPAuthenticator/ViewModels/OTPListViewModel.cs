@@ -12,7 +12,7 @@ namespace HBR.OTPAuthenticator.ViewModels
 {
     public class OTPListViewModel : BaseViewModel
     {
-        private StorageService storageService { get; set; }
+        private OTPStorageService storageService { get; set; }
         private ObservableCollection<OTPItemViewModel> oTPList;
         private static readonly TimeSpan BackgroudRefreshInterval = TimeSpan.FromMilliseconds(50);
         private DateTime NextUpdateTime { get; set; } = DateTime.UtcNow;
@@ -25,7 +25,7 @@ namespace HBR.OTPAuthenticator.ViewModels
 
         public OTPListViewModel()
         {
-            storageService = new StorageService();
+            storageService = new OTPStorageService();
             this.LoadOTPList();
         }
 
@@ -47,7 +47,7 @@ namespace HBR.OTPAuthenticator.ViewModels
             if (currentTime.CompareTo(NextUpdateTime) >= 0)
             {
                 foreach (var i in OTPList)
-                    i.UpdateOTP(currentTime);
+                    i.UpdateProgressTimer(currentTime);
 
                 NextUpdateTime = new DateTime(currentTime.AddSeconds(OTPGenerator.TimeStepSeconds).Ticks % (TimeSpan.TicksPerSecond * OTPGenerator.TimeStepSeconds));
             }

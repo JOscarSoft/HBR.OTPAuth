@@ -29,7 +29,7 @@
                                         Text="{Binding OTP}"
                                         TextColor="DarkBlue"
                                         FontAttributes="Bold"
-                                        FontSize="Medium">
+                                        FontSize="Large">
                                     </Label>
                                     <Label
                                         Text="{Binding OTPInformation}"
@@ -40,8 +40,41 @@
                                 <ProgressBar
                                     Progress="{Binding Progress}"
                                     ProgressColor="Red"
+                                    IsVisible="False"
                                     Grid.Column="1">
+                                    <ProgressBar.Triggers>
+                                        <DataTrigger
+                                            TargetType="ProgressBar"
+                                            Binding="{Binding TimeBased}"
+                                            Value="True">
+                                            <Setter Property="IsVisible" Value="True"></Setter>
+                                        </DataTrigger>
+                                    </ProgressBar.Triggers>
                                 </ProgressBar>
+                                <ImageButton
+                                    Command="{Binding ManualRefreshCommand}"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center" 
+                                    BackgroundColor="Transparent"
+                                    BorderColor="Transparent"
+                                    Source="refresh_code_disabled.png"
+                                    IsVisible="True"
+                                    Grid.Column="1">
+                                    <ImageButton.Triggers>
+                                        <DataTrigger
+                                            TargetType="ImageButton"
+                                            Binding="{Binding TimeBased}"
+                                            Value="True">
+                                            <Setter Property="IsVisible" Value="False"></Setter>
+                                        </DataTrigger>
+                                        <DataTrigger
+                                            TargetType="ImageButton"
+                                            Binding="{Binding AllowRefresh}"
+                                            Value="True">
+                                            <Setter Property="Source" Value="refresh_code.png"></Setter>
+                                        </DataTrigger>
+                                    </ImageButton.Triggers>
+                                </ImageButton>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
