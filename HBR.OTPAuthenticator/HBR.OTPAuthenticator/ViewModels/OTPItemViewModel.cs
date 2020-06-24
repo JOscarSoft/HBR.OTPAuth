@@ -71,8 +71,6 @@ namespace HBR.OTPAuthenticator.ViewModels
 
                 if ((progress % 5) == 0)
                     AllowRefresh = true;
-
-                Debug.WriteLine(progress);
             }
         }
     }

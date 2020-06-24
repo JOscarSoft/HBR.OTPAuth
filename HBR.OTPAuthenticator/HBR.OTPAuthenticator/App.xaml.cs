@@ -14,6 +14,8 @@ namespace HBR.OTPAuthenticator
 
             MainViewModel.GetInstance().OTPListModel = new OTPListViewModel();
             this.MainPage = new NavigationPage(new OTPList());
+            //MainViewModel.GetInstance().AddOTPModel = new AddOTPViewModel();
+            //this.MainPage = new NavigationPage(new AddOTP());
         }
 
         protected override void OnStart()

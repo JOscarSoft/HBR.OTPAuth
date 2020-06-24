@@ -24,7 +24,8 @@
                                 </Grid.ColumnDefinitions>
                                 <StackLayout
                                     Grid.Column="0"
-                                    VerticalOptions="Center">
+                                    VerticalOptions="Center"
+                                    Padding="0,10">
                                     <Label
                                         Text="{Binding OTP}"
                                         TextColor="DarkBlue"
@@ -58,6 +59,7 @@
                                     BackgroundColor="Transparent"
                                     BorderColor="Transparent"
                                     Source="refresh_code_disabled.png"
+                                    Padding="0,0,12,0"
                                     IsVisible="True"
                                     Grid.Column="1">
                                     <ImageButton.Triggers>

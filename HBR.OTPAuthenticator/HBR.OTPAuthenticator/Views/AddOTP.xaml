@@ -33,6 +33,10 @@
                     Keyboard="Text"
                     Text="{Binding Issuer}">
                 </Entry>
+                <Switch
+                    IsToggled="{Binding TimeBased}"
+                    OnColor="DarkBlue"
+                    ThumbColor="DarkBlue"></Switch>
                 <Button 
                     Command="{Binding AddOtpCommand}"
                     Text="Agregar">
