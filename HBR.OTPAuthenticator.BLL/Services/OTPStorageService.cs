@@ -35,6 +35,7 @@ namespace HBR.OTPAuthenticator.BLL.Services
                 AlgorithmName = input.AlgorithmName;
                 Secret = input.Secret;
                 NumDigits = input.NumDigits;
+                Counter = input.Counter;
             }
 
             [Ignore]

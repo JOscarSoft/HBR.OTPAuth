@@ -35,7 +35,7 @@ namespace HBR.OTPAuthenticator.BLL.Models
         public string Issuer { get; set; }
 
         public bool TimeBased { get; set; }
-
+        public long Counter { get; set; }
         public string AlgorithmName { get; set; }
 
         public virtual byte[] Secret { get; set; }
@@ -80,12 +80,14 @@ namespace HBR.OTPAuthenticator.BLL.Models
 
         public string GenerateOTP(DateTime input)
         {
-            var otp = new Totp(Secret, step: ManualStepSeconds, AlgorithmsMapping[AlgorithmName], NumDigits);
+            if (TimeBased)
+            {
+                var otp = new Totp(Secret, TimeStepSeconds, AlgorithmsMapping[AlgorithmName], NumDigits);
+                return otp.ComputeTotp(input);
+            }
 
-            if(TimeBased)
-                otp = new Totp(Secret, TimeStepSeconds, AlgorithmsMapping[AlgorithmName], NumDigits);
-
-            return otp.ComputeTotp(input);
+            var hotp = new Hotp(Secret, AlgorithmsMapping[AlgorithmName], NumDigits);
+            return hotp.ComputeHOTP(Counter++);
         }
 
         public Uri ToUri()

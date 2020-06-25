@@ -5,19 +5,29 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="HBR.OTPAuthenticator.Views.OTPList"
+             xmlns:resources="clr-namespace:HBR.OTPAuthenticator.Resources"
              BindingContext="{Binding Main, Source= {StaticResource Locator}}"
-             Title="Listado de Claves">
+             Title="{x:Static resources:StringResources.OTPListTitle}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="ic_action_add.png" Command="{Binding AddOTPCommand}"></ToolbarItem>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout
             Padding="8"
             BindingContext="{Binding OTPListModel}">
             <ListView
                 HasUnevenRows="True"
-                ItemsSource="{Binding OTPList}">
+                ItemsSource="{Binding OTPList}"
+                SelectionMode="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <Grid>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                                        Command="{Binding ManualRefreshCommand}">
+                                    </TapGestureRecognizer>
+                                </Grid.GestureRecognizers>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
@@ -28,19 +38,27 @@
                                     Padding="0,10">
                                     <Label
                                         Text="{Binding OTP}"
-                                        TextColor="DarkBlue"
                                         FontAttributes="Bold"
+                                        TextColor="{StaticResource TokenColor}"
                                         FontSize="Large">
+                                        <Label.Triggers>
+                                            <DataTrigger
+                                                TargetType="Label"
+                                                Binding="{Binding RedProgress}"
+                                                Value="true">
+                                                <Setter Property="TextColor" Value="Red"></Setter>
+                                            </DataTrigger>
+                                        </Label.Triggers>
                                     </Label>
                                     <Label
                                         Text="{Binding OTPInformation}"
                                         FontAttributes="Bold"
-                                        TextColor="Black">
+                                        TextColor="{StaticResource OTPInformationColor}">
                                     </Label>
                                 </StackLayout>
                                 <ProgressBar
                                     Progress="{Binding Progress}"
-                                    ProgressColor="Red"
+                                    ProgressColor="{StaticResource ProgressBarColor}"
                                     IsVisible="False"
                                     Grid.Column="1">
                                     <ProgressBar.Triggers>

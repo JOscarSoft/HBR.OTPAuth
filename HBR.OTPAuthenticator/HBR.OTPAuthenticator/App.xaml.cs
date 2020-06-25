@@ -8,14 +8,13 @@ namespace HBR.OTPAuthenticator
 {
     public partial class App : Application
     {
+        public static NavigationPage Navigator { get; internal set; }
         public App()
         {
             InitializeComponent();
 
             MainViewModel.GetInstance().OTPListModel = new OTPListViewModel();
-            this.MainPage = new NavigationPage(new OTPList());
-            //MainViewModel.GetInstance().AddOTPModel = new AddOTPViewModel();
-            //this.MainPage = new NavigationPage(new AddOTP());
+            this.MainPage = new MasterPage();
         }
 
         protected override void OnStart()

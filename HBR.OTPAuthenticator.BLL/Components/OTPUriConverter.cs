@@ -24,11 +24,6 @@ namespace HBR.OTPAuthenticator.BLL.Components
             {
                 return null;
             }
-
-            if (input.Host != UriHost)
-            {
-                return null;
-            }
             //Label required parameter
             const int expectedSegmentsLength = 2;
             if (input.Segments.Length != expectedSegmentsLength)
@@ -92,6 +87,7 @@ namespace HBR.OTPAuthenticator.BLL.Components
                     return null;
                 }
             }
+            output.TimeBased = input.Host == UriHost;
 
             //Algorithm optional parameter
             if (queryValues.ContainsKey(UriQueryAlgorithm))

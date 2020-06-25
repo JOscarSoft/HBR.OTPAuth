@@ -3,9 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:resources="clr-namespace:HBR.OTPAuthenticator.Resources"
              mc:Ignorable="d"
              BindingContext="{Binding Main, Source= {StaticResource Locator}}"
-             Title="Agregar Nueva Clave"
+             Title="{x:Static resources:StringResources.AddOTPTitle}"
              x:Class="HBR.OTPAuthenticator.Views.AddOTP">
     <ContentPage.Content>
         <ScrollView
@@ -13,30 +14,37 @@
             <StackLayout
                 Padding="8">
                 <Label
-                    Text="Nombre">
+                    Text="{x:Static resources:StringResources.Label}">
                 </Label>
                 <Entry
                     Keyboard="Text"
                     Text="{Binding Name}">
                 </Entry>
                 <Label
-                    Text="Clave">
+                    Text="{x:Static resources:StringResources.Secret}">
                 </Label>
                 <Entry
                     Keyboard="Text"
                     Text="{Binding SecretKey}">
                 </Entry>
                 <Label
-                    Text="Proveedor">
+                    Text="{x:Static resources:StringResources.Issuer}">
                 </Label>
                 <Entry
                     Keyboard="Text"
                     Text="{Binding Issuer}">
                 </Entry>
-                <Switch
-                    IsToggled="{Binding TimeBased}"
-                    OnColor="DarkBlue"
-                    ThumbColor="DarkBlue"></Switch>
+                <StackLayout
+                    Orientation="Horizontal"
+                    Padding="0,8,0,15">
+                    <Switch
+                        IsToggled="{Binding TimeBased}"
+                        OnColor="DarkBlue"
+                        ThumbColor="DarkBlue"></Switch>
+                    <Label
+                        Text="{x:Static resources:StringResources.TimeBased}">
+                    </Label>
+                </StackLayout>
                 <Button 
                     Command="{Binding AddOtpCommand}"
                     Text="Agregar">

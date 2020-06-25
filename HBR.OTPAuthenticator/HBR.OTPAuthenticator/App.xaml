@@ -10,5 +10,8 @@
         <ResourceDictionary>
             <infra:InstanceLocator x:Key="Locator"/>
         </ResourceDictionary>
+        <Color x:Key="TokenColor">#303F9F</Color>
+        <Color x:Key="ProgressBarColor">Red</Color>
+        <Color x:Key="OTPInformationColor">Black</Color>
     </Application.Resources>
 </Application>

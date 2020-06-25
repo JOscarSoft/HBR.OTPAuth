@@ -1,6 +1,8 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using HBR.OTPAuthenticator.BLL.Models;
 using HBR.OTPAuthenticator.BLL.Services;
+using HBR.OTPAuthenticator.Resources;
+using HBR.OTPAuthenticator.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -22,12 +24,17 @@ namespace HBR.OTPAuthenticator.ViewModels
         {
             if (string.IsNullOrEmpty(Name))
             {
-                await Application.Current.MainPage.DisplayAlert("Error", "El campo \"Nombre\" es obligatorio.", "Aceptar");
+                await Application.Current.MainPage.DisplayAlert(StringResources.Error, StringResources.EmptyLabel, StringResources.Ok);
                 return;
             }
             if (string.IsNullOrEmpty(SecretKey))
             {
-                await Application.Current.MainPage.DisplayAlert("Error", "El campo \"Clave\" es obligatorio.", "Aceptar");
+                await Application.Current.MainPage.DisplayAlert(StringResources.Error, StringResources.EmptySecret, StringResources.Ok);
+                return;
+            }
+            if(SecretKey.Length < 12)
+            {
+                await Application.Current.MainPage.DisplayAlert(StringResources.Error, StringResources.ShortSecret, StringResources.Ok);
                 return;
             }
 
@@ -40,7 +47,10 @@ namespace HBR.OTPAuthenticator.ViewModels
             };
             var storageService = new OTPStorageService();
             await storageService.InsertOrReplaceAsync(otp);
-            await Application.Current.MainPage.DisplayAlert("Success", "Fuck yeah carajo!!!", "Aceptar");
+            MainViewModel.GetInstance().OTPListModel = new OTPListViewModel();
+
+            await Application.Current.MainPage.DisplayAlert(StringResources.Confirm, StringResources.AddedSucccess, StringResources.Ok);
+            await App.Navigator.PushAsync(new OTPList());
         }
     }
 }
