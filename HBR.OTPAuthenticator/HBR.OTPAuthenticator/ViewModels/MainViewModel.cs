@@ -37,7 +37,7 @@ namespace HBR.OTPAuthenticator.ViewModels
             EditOTPModel = new EditOTPViewModel(OtpGenerator);
             await PopupNavigation.Instance.PushAsync(new EditOTPModal());
         }
-        private async void DeleteOTP()
+        private void DeleteOTP()
         {
             var OtpGenerator = OTPListModel.OTPList.FirstOrDefault(p => p.IsSelected).Generator;
             EditOTPModel = new EditOTPViewModel(OtpGenerator);
