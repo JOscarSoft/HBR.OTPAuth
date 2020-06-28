@@ -84,6 +84,10 @@ namespace HBR.OTPAuthenticator.ViewModels
                 this.IsSelected = true;
 
             }
+            else
+            {
+                ManualRefresh();
+            }
         }
 
         public OTPItemViewModel(OTPGenerator gen)
