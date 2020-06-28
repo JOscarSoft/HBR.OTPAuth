@@ -159,6 +159,9 @@
   <data name="OTPListTitle" xml:space="preserve">
     <value>Listado de Claves</value>
   </data>
+  <data name="Save" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
   <data name="Secret" xml:space="preserve">
     <value>Clave</value>
   </data>

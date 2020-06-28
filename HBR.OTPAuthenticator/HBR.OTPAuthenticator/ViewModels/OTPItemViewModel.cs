@@ -18,7 +18,7 @@ namespace HBR.OTPAuthenticator.ViewModels
         private double progress;
         private bool allowRefresh;
         private bool isSelected;
-        private OTPGenerator Generator { get; }
+        public OTPGenerator Generator { get; }
 
         private OTPStorageService storageService { get; set; }
         private Timer RefreshTimer;

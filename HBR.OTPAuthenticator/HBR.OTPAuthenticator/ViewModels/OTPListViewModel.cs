@@ -22,6 +22,7 @@ namespace HBR.OTPAuthenticator.ViewModels
         public OTPListViewModel()
         {
             storageService = new OTPStorageService();
+            MainViewModel.GetInstance().OnEditing = false;
             this.LoadOTPList();
         }
 

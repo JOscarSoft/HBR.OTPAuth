@@ -47,7 +47,7 @@
                 </StackLayout>
                 <Button 
                     Command="{Binding AddOtpCommand}"
-                    Text="Agregar">
+                    Text="{x:Static resources:StringResources.Add}">
                     
                 </Button>
             </StackLayout>

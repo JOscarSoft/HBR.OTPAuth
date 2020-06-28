@@ -2,8 +2,10 @@
 using HBR.OTPAuthenticator.Views;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows.Input;
+using Rg.Plugins.Popup.Services;
 
 namespace HBR.OTPAuthenticator.ViewModels
 {
@@ -12,7 +14,9 @@ namespace HBR.OTPAuthenticator.ViewModels
         private static MainViewModel instance;
         public AddOTPViewModel AddOTPModel { get; set; }
         public OTPListViewModel OTPListModel { get; set; }
-        public ICommand AddOTPCommand => new RelayCommand(GoAddOTP);
+        public EditOTPViewModel EditOTPModel { get; set; }
+        public ICommand AddOTPCommand => new RelayCommand(GoAddOTP); 
+        public ICommand ShowEditCommand => new RelayCommand(ShowEdit);
 
         private bool onEditing;
 
@@ -24,6 +28,13 @@ namespace HBR.OTPAuthenticator.ViewModels
         public MainViewModel()
         {
             instance = this;
+        }
+
+        private async void ShowEdit()
+        {
+            var OtpGenerator = OTPListModel.OTPList.FirstOrDefault(p => p.IsSelected).Generator;
+            this.EditOTPModel = new EditOTPViewModel(OtpGenerator);
+            await PopupNavigation.Instance.PushAsync(new EditOTPModal());
         }
 
         private async void GoAddOTP()
