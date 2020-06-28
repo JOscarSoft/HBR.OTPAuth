@@ -121,7 +121,7 @@
     <value>Agregar</value>
   </data>
   <data name="AddedFailed" xml:space="preserve">
-    <value>Se produjo un error agregando el autenticador</value>
+    <value>Se produjo un error agregando el autenticador, favor de validar la clave e intentarlo nuevamente.</value>
   </data>
   <data name="AddedSucccess" xml:space="preserve">
     <value>Autenticador agregado con exito</value>

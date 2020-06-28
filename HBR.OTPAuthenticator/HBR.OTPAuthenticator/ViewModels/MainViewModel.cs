@@ -7,12 +7,20 @@ using System.Windows.Input;
 
 namespace HBR.OTPAuthenticator.ViewModels
 {
-    public class MainViewModel
+    public class MainViewModel : BaseViewModel
     {
         private static MainViewModel instance;
         public AddOTPViewModel AddOTPModel { get; set; }
         public OTPListViewModel OTPListModel { get; set; }
         public ICommand AddOTPCommand => new RelayCommand(GoAddOTP);
+
+        private bool onEditing;
+
+        public bool OnEditing
+        {
+            get { return this.onEditing; }
+            set { this.SetValue(ref this.onEditing, value); }
+        }
         public MainViewModel()
         {
             instance = this;

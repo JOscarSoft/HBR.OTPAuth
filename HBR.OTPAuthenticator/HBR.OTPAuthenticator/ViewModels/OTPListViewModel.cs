@@ -19,7 +19,6 @@ namespace HBR.OTPAuthenticator.ViewModels
             get { return this.oTPList; }
             set { this.SetValue(ref this.oTPList, value); }
         }
-
         public OTPListViewModel()
         {
             storageService = new OTPStorageService();

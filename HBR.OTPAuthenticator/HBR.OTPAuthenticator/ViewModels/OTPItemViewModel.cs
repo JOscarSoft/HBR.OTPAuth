@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using GalaSoft.MvvmLight.Command;
 using HBR.OTPAuthenticator.BLL.Services;
 using System.Threading;
+using System.Linq;
 
 namespace HBR.OTPAuthenticator.ViewModels
 {
@@ -16,6 +17,7 @@ namespace HBR.OTPAuthenticator.ViewModels
         private string otp;
         private double progress;
         private bool allowRefresh;
+        private bool isSelected;
         private OTPGenerator Generator { get; }
 
         private OTPStorageService storageService { get; set; }
@@ -23,20 +25,27 @@ namespace HBR.OTPAuthenticator.ViewModels
         private DateTime NextUpdateTime { get; set; } = DateTime.UtcNow;
         private bool redProgress;
 
-        public string OTPInformation => $"{Generator.Label} - {Generator.Issuer}";
+        public string OTPInformation => GenerateInformation();
+
         public bool TimeBased => Generator.TimeBased;
         public ICommand ManualRefreshCommand => new RelayCommand(ManualRefresh);
-
+        public ICommand SelectOTPCommand => new RelayCommand(SelectOTP);
+        public ICommand ChangeSelectCommand => new RelayCommand(ChangeSelect);
 
         public string OTP
         {
-            get { return $"{this.otp.Substring(0,3)} {this.otp.Substring(3, 3)}"; }
+            get { return $"{this.otp.Substring(0, 3)} {this.otp.Substring(3, 3)}"; }
             set { this.SetValue(ref this.otp, value); }
         }
         public bool AllowRefresh
         {
             get { return this.allowRefresh; }
             set { this.SetValue(ref this.allowRefresh, value); }
+        }
+        public bool IsSelected
+        {
+            get { return this.isSelected; }
+            set { this.SetValue(ref this.isSelected, value); }
         }
         public bool RedProgress
         {
@@ -47,6 +56,34 @@ namespace HBR.OTPAuthenticator.ViewModels
         {
             get { return this.progress; }
             set { this.SetValue(ref this.progress, value); }
+        }
+
+        private void SelectOTP()
+        {
+            if (MainViewModel.GetInstance().OnEditing)
+                return;
+
+            MainViewModel.GetInstance().OnEditing = true;
+            this.IsSelected = true;
+        }
+        private void ChangeSelect()
+        {
+            if (MainViewModel.GetInstance().OnEditing)
+            {
+                if (this.IsSelected)
+                {
+                    MainViewModel.GetInstance().OnEditing = false;
+                    this.IsSelected = false;
+                    return;
+                }
+
+                MainViewModel.GetInstance().OTPListModel.OTPList
+                    .FirstOrDefault(p => p.IsSelected)
+                    .IsSelected = false;
+
+                this.IsSelected = true;
+
+            }
         }
 
         public OTPItemViewModel(OTPGenerator gen)
@@ -82,7 +119,7 @@ namespace HBR.OTPAuthenticator.ViewModels
         {
             OTP = Generator.GenerateOTP(time);
         }
-        
+
         public void UpdateProgressTimer(DateTime time)
         {
             double countDown = ((1000 * (time.Second % OTPGenerator.TimeStepSeconds)) + time.Millisecond) / 100000f;
@@ -108,6 +145,14 @@ namespace HBR.OTPAuthenticator.ViewModels
                 UpdateProgressTimer(currentTime);
                 NextUpdateTime = new DateTime(currentTime.AddSeconds(OTPGenerator.TimeStepSeconds).Ticks % (TimeSpan.TicksPerSecond * OTPGenerator.TimeStepSeconds));
             }
+        }
+
+        private string GenerateInformation()
+        {
+            if (string.IsNullOrEmpty(Generator.Issuer))
+                return Generator.Label;
+
+            return $"{Generator.Label} - {Generator.Issuer}";
         }
     }
 }

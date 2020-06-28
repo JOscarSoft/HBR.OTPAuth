@@ -70,7 +70,7 @@ namespace HBR.OTPAuthenticator.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Se produjo un error agregando el autenticador.
+        ///   Looks up a localized string similar to Se produjo un error agregando el autenticador, favor de validar la clave e intentarlo nuevamente..
         /// </summary>
         internal static string AddedFailed {
             get {

@@ -6,10 +6,18 @@
              mc:Ignorable="d"
              x:Class="HBR.OTPAuthenticator.Views.OTPList"
              xmlns:resources="clr-namespace:HBR.OTPAuthenticator.Resources"
-             BindingContext="{Binding Main, Source= {StaticResource Locator}}"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             xmlns:local="clr-namespace:HBR.OTPAuthenticator"
              Title="{x:Static resources:StringResources.OTPListTitle}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:InverseBoolConverter x:Key="BoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="ic_action_add.png" Command="{Binding AddOTPCommand}"></ToolbarItem>
+        <local:CustomToolbarItem IconImageSource="ic_action_add.png" Command="{Binding AddOTPCommand}" IsVisible="{Binding OnEditing, Converter={StaticResource BoolConverter}}"></local:CustomToolbarItem>
+        <local:CustomToolbarItem IconImageSource="ic_action_edit.png" IsVisible="{Binding OnEditing}"></local:CustomToolbarItem>
+        <local:CustomToolbarItem IconImageSource="ic_action_delete.png" IsVisible="{Binding OnEditing}"></local:CustomToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout
@@ -22,12 +30,24 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid>
-                                <Grid.GestureRecognizers>
-                                    <TapGestureRecognizer 
-                                        Command="{Binding ManualRefreshCommand}">
-                                    </TapGestureRecognizer>
-                                </Grid.GestureRecognizers>
+                            <Grid 
+                                BackgroundColor="Transparent"
+                                local:LongPressedEffect.Command="{Binding SelectOTPCommand}" 
+                                local:LongPressedEffect.CommandParameter="{Binding .}"
+                                local:SimplePressedEffect.Command="{Binding ChangeSelectCommand}"
+                                local:SimplePressedEffect.CommandParameter="{Binding .}">
+                                <Grid.Triggers>
+                                    <DataTrigger 
+                                        TargetType="Grid" 
+                                        Binding="{Binding IsSelected}"
+                                        Value="true">
+                                        <Setter Property="BackgroundColor" Value="{StaticResource SelectedOTPColor}"></Setter>
+                                    </DataTrigger>
+                                </Grid.Triggers>
+                                <Grid.Effects>
+                                    <local:LongPressedEffect/>
+                                    <local:SimplePressedEffect/>
+                                </Grid.Effects>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
@@ -39,7 +59,7 @@
                                     <Label
                                         Text="{Binding OTP}"
                                         FontAttributes="Bold"
-                                        TextColor="{StaticResource TokenColor}"
+                                        TextColor="{StaticResource PrimaryColor}"
                                         FontSize="Large">
                                         <Label.Triggers>
                                             <DataTrigger
@@ -58,17 +78,9 @@
                                 </StackLayout>
                                 <ProgressBar
                                     Progress="{Binding Progress}"
-                                    ProgressColor="{StaticResource ProgressBarColor}"
-                                    IsVisible="False"
-                                    Grid.Column="1">
-                                    <ProgressBar.Triggers>
-                                        <DataTrigger
-                                            TargetType="ProgressBar"
-                                            Binding="{Binding TimeBased}"
-                                            Value="True">
-                                            <Setter Property="IsVisible" Value="True"></Setter>
-                                        </DataTrigger>
-                                    </ProgressBar.Triggers>
+                                    ProgressColor="{StaticResource PrimaryColor}"
+                                    Grid.Column="1"
+                                    IsVisible="{Binding TimeBased}">
                                 </ProgressBar>
                                 <ImageButton
                                     Command="{Binding ManualRefreshCommand}"
@@ -78,15 +90,9 @@
                                     BorderColor="Transparent"
                                     Source="refresh_code_disabled.png"
                                     Padding="0,0,12,0"
-                                    IsVisible="True"
+                                    IsVisible="{Binding TimeBased, Converter={StaticResource BoolConverter}}"
                                     Grid.Column="1">
                                     <ImageButton.Triggers>
-                                        <DataTrigger
-                                            TargetType="ImageButton"
-                                            Binding="{Binding TimeBased}"
-                                            Value="True">
-                                            <Setter Property="IsVisible" Value="False"></Setter>
-                                        </DataTrigger>
                                         <DataTrigger
                                             TargetType="ImageButton"
                                             Binding="{Binding AllowRefresh}"

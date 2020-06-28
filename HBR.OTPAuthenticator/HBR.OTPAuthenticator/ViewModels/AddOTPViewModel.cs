@@ -38,19 +38,29 @@ namespace HBR.OTPAuthenticator.ViewModels
                 return;
             }
 
-            var otp = new OTPGenerator()
-            {
-                Label = Name,
-                SecretBase32 = SecretKey,
-                Issuer = Issuer,
-                TimeBased = TimeBased
-            };
-            var storageService = new OTPStorageService();
-            await storageService.InsertOrReplaceAsync(otp);
-            MainViewModel.GetInstance().OTPListModel = new OTPListViewModel();
 
-            await Application.Current.MainPage.DisplayAlert(StringResources.Confirm, StringResources.AddedSucccess, StringResources.Ok);
-            await App.Navigator.PushAsync(new OTPList());
+            try
+            {
+                var otp = new OTPGenerator()
+                {
+                    Label = Name,
+                    SecretBase32 = SecretKey,
+                    Issuer = Issuer,
+                    TimeBased = TimeBased
+                };
+
+                var storageService = new OTPStorageService();
+                await storageService.InsertOrReplaceAsync(otp);
+                MainViewModel.GetInstance().OTPListModel = new OTPListViewModel();
+
+                await Application.Current.MainPage.DisplayAlert(StringResources.Confirm, StringResources.AddedSucccess, StringResources.Ok);
+                
+                App.Current.MainPage = new MasterPage();
+            }
+            catch
+            {
+                await Application.Current.MainPage.DisplayAlert(StringResources.Error, StringResources.AddedFailed, StringResources.Ok);
+            }
         }
     }
 }
