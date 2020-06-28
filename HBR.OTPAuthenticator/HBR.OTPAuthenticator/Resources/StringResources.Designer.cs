@@ -61,6 +61,15 @@ namespace HBR.OTPAuthenticator.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ¿Está seguro de eliminar esta clave?.
+        /// </summary>
+        internal static string AcceptDelete {
+            get {
+                return ResourceManager.GetString("AcceptDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Agregar.
         /// </summary>
         internal static string Add {

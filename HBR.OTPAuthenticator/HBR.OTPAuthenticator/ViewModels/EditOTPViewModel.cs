@@ -15,11 +15,20 @@ namespace HBR.OTPAuthenticator.ViewModels
 {
     public class EditOTPViewModel : BaseViewModel
     {
+        private readonly OTPStorageService storageService;
         public string Label { get; set; }
         public string Issuer { get; set; }
         public OTPGenerator OtpGenerator;
 
         public ICommand EditCommand => new RelayCommand(EditOtpGenerator);
+
+        public EditOTPViewModel(OTPGenerator oTPGenerator)
+        {
+            storageService = new OTPStorageService();
+            OtpGenerator = oTPGenerator;
+            Label = oTPGenerator.Label;
+            Issuer = oTPGenerator.Issuer;
+        }
         private async void EditOtpGenerator()
         {
             if (string.IsNullOrEmpty(Label))
@@ -27,11 +36,10 @@ namespace HBR.OTPAuthenticator.ViewModels
                 await Application.Current.MainPage.DisplayAlert(StringResources.Error, StringResources.EmptyLabel, StringResources.Ok);
                 return;
             }
-            
+
             OtpGenerator.Label = Label;
             OtpGenerator.Issuer = Issuer;
-            
-            var storageService = new OTPStorageService();
+
             await storageService.InsertOrReplaceAsync(OtpGenerator);
 
             MainViewModel.GetInstance().OTPListModel = new OTPListViewModel();
@@ -39,11 +47,15 @@ namespace HBR.OTPAuthenticator.ViewModels
             await PopupNavigation.Instance.PopAllAsync();
         }
 
-        public EditOTPViewModel(OTPGenerator oTPGenerator)
+        public async void DeleteOtpGenerator()
         {
-            this.OtpGenerator = oTPGenerator;
-            Label = oTPGenerator.Label;
-            Issuer = oTPGenerator.Issuer;
+            var accepted = await Application.Current.MainPage.DisplayAlert(StringResources.Error, StringResources.AcceptDelete, StringResources.Ok, StringResources.Cancel);
+            if (accepted)
+            {
+                await storageService.DeleteAsync(OtpGenerator);
+                MainViewModel.GetInstance().OTPListModel = new OTPListViewModel();
+                App.Current.MainPage = new MasterPage();
+            }
         }
     }
 }

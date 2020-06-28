@@ -17,6 +17,7 @@ namespace HBR.OTPAuthenticator.ViewModels
         public EditOTPViewModel EditOTPModel { get; set; }
         public ICommand AddOTPCommand => new RelayCommand(GoAddOTP); 
         public ICommand ShowEditCommand => new RelayCommand(ShowEdit);
+        public ICommand DeleteCommand => new RelayCommand(DeleteOTP);
 
         private bool onEditing;
 
@@ -33,8 +34,14 @@ namespace HBR.OTPAuthenticator.ViewModels
         private async void ShowEdit()
         {
             var OtpGenerator = OTPListModel.OTPList.FirstOrDefault(p => p.IsSelected).Generator;
-            this.EditOTPModel = new EditOTPViewModel(OtpGenerator);
+            EditOTPModel = new EditOTPViewModel(OtpGenerator);
             await PopupNavigation.Instance.PushAsync(new EditOTPModal());
+        }
+        private async void DeleteOTP()
+        {
+            var OtpGenerator = OTPListModel.OTPList.FirstOrDefault(p => p.IsSelected).Generator;
+            EditOTPModel = new EditOTPViewModel(OtpGenerator);
+            EditOTPModel.DeleteOtpGenerator();
         }
 
         private async void GoAddOTP()

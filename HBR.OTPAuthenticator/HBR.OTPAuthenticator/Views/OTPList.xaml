@@ -17,7 +17,7 @@
     <ContentPage.ToolbarItems>
         <local:CustomToolbarItem IconImageSource="ic_action_add.png" Command="{Binding AddOTPCommand}" IsVisible="{Binding OnEditing, Converter={StaticResource BoolConverter}}"></local:CustomToolbarItem>
         <local:CustomToolbarItem IconImageSource="ic_action_edit.png" Command="{Binding ShowEditCommand}" IsVisible="{Binding OnEditing}"></local:CustomToolbarItem>
-        <local:CustomToolbarItem IconImageSource="ic_action_delete.png" IsVisible="{Binding OnEditing}"></local:CustomToolbarItem>
+        <local:CustomToolbarItem IconImageSource="ic_action_delete.png" Command="{Binding DeleteCommand}" IsVisible="{Binding OnEditing}"></local:CustomToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout
