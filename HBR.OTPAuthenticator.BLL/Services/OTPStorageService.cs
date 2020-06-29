@@ -60,8 +60,6 @@ namespace HBR.OTPAuthenticator.BLL.Services
         private SemaphoreSlim ConnectionMutex { get; } = new SemaphoreSlim(1, 1);
         private SQLiteAsyncConnection Connection { get; set; }
 
-        public event ErrorEventHandler ErrorOccurred;
-
         public OTPStorageService()
         {
            // SecureStorage = secureStorage ?? throw new ArgumentException(nameof(SecureStorage));

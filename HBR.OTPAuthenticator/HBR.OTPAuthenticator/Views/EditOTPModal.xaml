@@ -28,24 +28,24 @@
             VerticalOptions="Center"
             BindingContext="{Binding EditOTPModel}">
         <StackLayout>
-                <Label
+            <Label
                     Text="{x:Static resources:StringResources.Label}">
-                </Label>
-                <Entry
+            </Label>
+            <Entry
                     Keyboard="Text"
                     Text="{Binding Label}">
-                </Entry>
-                <Label
+            </Entry>
+            <Label
                     Text="{x:Static resources:StringResources.Issuer}">
-                </Label>
-                <Entry
+            </Label>
+            <Entry
                     Keyboard="Text"
                     Text="{Binding Issuer}">
-                </Entry>
-                <Button 
+            </Entry>
+            <Button 
                     Command="{Binding EditCommand}"
                     Text="{x:Static resources:StringResources.Save}">
-                </Button>
+            </Button>
         </StackLayout>
     </Frame>
 </pages:PopupPage>

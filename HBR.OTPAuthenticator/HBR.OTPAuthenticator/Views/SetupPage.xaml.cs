@@ -10,18 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace HBR.OTPAuthenticator.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MasterPage : MasterDetailPage
+    public partial class SetupPage : ContentPage
     {
-        public MasterPage()
+        public SetupPage()
         {
             InitializeComponent();
-        }
-
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            App.Navigator = this.Navigator;
-            App.Master = this;
         }
     }
 }

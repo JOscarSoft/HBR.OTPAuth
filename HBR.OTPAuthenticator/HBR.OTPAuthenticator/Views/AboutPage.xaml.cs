@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace HBR.OTPAuthenticator.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Menu : ContentPage
+    public partial class AboutPage : ContentPage
     {
-        public Menu()
+        public AboutPage()
         {
             InitializeComponent();
         }

@@ -160,6 +160,15 @@ namespace HBR.OTPAuthenticator.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to El codigo QR leído no contiene un OTP válido..
+        /// </summary>
+        internal static string InvalidQR {
+            get {
+                return ResourceManager.GetString("InvalidQR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Proveedor.
         /// </summary>
         internal static string Issuer {
@@ -174,6 +183,42 @@ namespace HBR.OTPAuthenticator.Resources {
         internal static string Label {
             get {
                 return ResourceManager.GetString("Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Acerca de.
+        /// </summary>
+        internal static string MenuAbout {
+            get {
+                return ResourceManager.GetString("MenuAbout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clave manual.
+        /// </summary>
+        internal static string MenuManualCode {
+            get {
+                return ResourceManager.GetString("MenuManualCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Código QR.
+        /// </summary>
+        internal static string MenuScanCode {
+            get {
+                return ResourceManager.GetString("MenuScanCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Configurar acceso.
+        /// </summary>
+        internal static string MenuSetup {
+            get {
+                return ResourceManager.GetString("MenuSetup", resourceCulture);
             }
         }
         
@@ -201,6 +246,15 @@ namespace HBR.OTPAuthenticator.Resources {
         internal static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Se produjo un error al leer el codigo QR..
+        /// </summary>
+        internal static string ScanQRError {
+            get {
+                return ResourceManager.GetString("ScanQRError", resourceCulture);
             }
         }
         

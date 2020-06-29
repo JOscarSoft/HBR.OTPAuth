@@ -150,11 +150,26 @@
   <data name="InvalidLogin" xml:space="preserve">
     <value>El código ingresado es incorrecto</value>
   </data>
+  <data name="InvalidQR" xml:space="preserve">
+    <value>El codigo QR leído no contiene un OTP válido.</value>
+  </data>
   <data name="Issuer" xml:space="preserve">
     <value>Proveedor</value>
   </data>
   <data name="Label" xml:space="preserve">
     <value>Nombre</value>
+  </data>
+  <data name="MenuAbout" xml:space="preserve">
+    <value>Acerca de</value>
+  </data>
+  <data name="MenuManualCode" xml:space="preserve">
+    <value>Clave manual</value>
+  </data>
+  <data name="MenuScanCode" xml:space="preserve">
+    <value>Código QR</value>
+  </data>
+  <data name="MenuSetup" xml:space="preserve">
+    <value>Configurar acceso</value>
   </data>
   <data name="Ok" xml:space="preserve">
     <value>Aceptar</value>
@@ -164,6 +179,9 @@
   </data>
   <data name="Save" xml:space="preserve">
     <value>Guardar</value>
+  </data>
+  <data name="ScanQRError" xml:space="preserve">
+    <value>Se produjo un error al leer el codigo QR.</value>
   </data>
   <data name="Secret" xml:space="preserve">
     <value>Clave</value>
