@@ -37,6 +37,7 @@ namespace HBR.OTPAuthenticator.BLL.Models
         public bool TimeBased { get; set; }
         public long Counter { get; set; }
         public string AlgorithmName { get; set; }
+        public DateTime CreationDate { get; set; }
 
         public virtual byte[] Secret { get; set; }
 
@@ -73,6 +74,7 @@ namespace HBR.OTPAuthenticator.BLL.Models
         public OTPGenerator()
         {
             Uid = Guid.NewGuid().ToString();
+            CreationDate = DateTime.UtcNow;
             Label = Issuer = string.Empty;
             AlgorithmName = HMacSha1Name;
             TimeBased = TimeBased;

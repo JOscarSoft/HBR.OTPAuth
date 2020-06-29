@@ -52,8 +52,6 @@ namespace HBR.OTPAuthenticator.BLL.Services
         internal const string DbFileName = "Data.db3";
         internal const string PasswordSalt = "bz77KNXdP,Bc4Acg";
 
-        //private readonly ISecureStorage SecureStorage;
-
         private readonly Lazy<byte[]> EncryptionKey;
 
         internal FileInfo DbFile { get; }
@@ -62,8 +60,6 @@ namespace HBR.OTPAuthenticator.BLL.Services
 
         public OTPStorageService()
         {
-           // SecureStorage = secureStorage ?? throw new ArgumentException(nameof(SecureStorage));
-
             DbFile = new FileInfo(Path.Combine(CrossFileSystem.Current.LocalStorage.FullName, DbFileName));
             EncryptionKey = new Lazy<byte[]>(GetEncryptionKey);
         }
@@ -80,7 +76,7 @@ namespace HBR.OTPAuthenticator.BLL.Services
                 i.Secret = Decrypt(secret, iv);
             }
 
-            var output = items.OrderBy(d => d.Label).ThenBy(d => d.Issuer).Cast<OTPGenerator>().ToList();
+            var output = items.OrderBy(d => d.CreationDate).ThenBy(d => d.Label).Cast<OTPGenerator>().ToList();
             ConnectionMutex.Release();
             return output;
         }
