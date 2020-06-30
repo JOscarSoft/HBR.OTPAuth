@@ -8,6 +8,36 @@ using HBR.OTPAuthenticator.BLL.Components;
 
 namespace HBR.OTPAuthenticator.BLL.Models
 {
+    [Table("OTPGenerator")]
+    public class OTPGeneratorInner : OTPGenerator
+    {
+        public OTPGeneratorInner()
+        {
+
+        }
+
+        public OTPGeneratorInner(OTPGenerator input)
+        {
+            Uid = input.Uid;
+            Label = input.Label;
+            Issuer = input.Issuer;
+            TimeBased = input.TimeBased;
+            AlgorithmName = input.AlgorithmName;
+            Secret = input.Secret;
+            NumDigits = input.NumDigits;
+            Counter = input.Counter;
+        }
+
+        [Ignore]
+        public override byte[] Secret { get; set; }
+
+        [JsonIgnore]
+        public string DbEncryptedSecret { get; set; }
+
+        [JsonIgnore]
+        public string DbEncryptedSecretIV { get; set; }
+    }
+
     public class OTPGenerator
     {
         internal const string HMacSha1Name = "SHA1";
