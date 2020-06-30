@@ -40,6 +40,7 @@ namespace HBR.OTPAuthenticator.ViewModels
                     await App.Navigator.PushAsync(new AboutPage());
                     break;
                 case "SetupPage":
+                    MainViewModel.GetInstance().SetupModel = new SetupViewModel();
                     await App.Navigator.PushAsync(new SetupPage());
                     break;
             }

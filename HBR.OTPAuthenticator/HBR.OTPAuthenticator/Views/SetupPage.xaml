@@ -3,13 +3,60 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:resources="clr-namespace:HBR.OTPAuthenticator.Resources"
              mc:Ignorable="d"
+             BindingContext="{Binding Main, Source= {StaticResource Locator}}"
+             Title="{x:Static resources:StringResources.MenuSetup}"
              x:Class="HBR.OTPAuthenticator.Views.SetupPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Setup Page"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView
+            BindingContext="{Binding SetupModel}">
+            <StackLayout
+                Margin="0,25,0,0"
+                Padding="8">
+                <StackLayout
+                    Orientation="Horizontal"
+                    Padding="0,8,0,15">
+                    <Switch
+                        IsToggled="{Binding LoginEnabled}"
+                        OnColor="{StaticResource PrimaryAccentColor}"
+                        ThumbColor="{StaticResource PrimaryAccentColor}">
+                        <Switch.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding LoginEnabledCommand}">
+                            </TapGestureRecognizer>
+                        </Switch.GestureRecognizers>
+                    </Switch>
+                    <Label
+                        Text="{x:Static resources:StringResources.LoginEnabledText}"
+                        FontSize="Subtitle">
+                    </Label>
+                </StackLayout>
+                <StackLayout
+                    Orientation="Horizontal"
+                    Padding="0,8,0,15"
+                    IsVisible="{Binding LoginEnabled}">
+                    <Switch
+                        IsToggled="{Binding UseBiometricAuth}"
+                        OnColor="{StaticResource PrimaryAccentColor}"
+                        ThumbColor="{StaticResource PrimaryAccentColor}">
+                        <Switch.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding UseBiometricCommand}">
+                            </TapGestureRecognizer>
+                        </Switch.GestureRecognizers>
+                    </Switch>
+                    <Label
+                        Text="{x:Static resources:StringResources.UseBiometrics}"
+                        FontSize="Subtitle">
+                    </Label>
+                </StackLayout>
+                <Button 
+                    IsVisible="{Binding LoginEnabled}"
+                    Command="{Binding EditSecretCommand}"
+                    Text="{x:Static resources:StringResources.UpdateSecretCode}">
+                </Button>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

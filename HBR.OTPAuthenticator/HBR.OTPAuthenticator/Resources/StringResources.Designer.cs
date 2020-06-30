@@ -169,6 +169,15 @@ namespace HBR.OTPAuthenticator.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ¿Está seguro de deshabilitar el uso de login para el acceso?.
+        /// </summary>
+        internal static string DisableLogin {
+            get {
+                return ResourceManager.GetString("DisableLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to El campo &quot;Nombre&quot; es obligatorio.
         /// </summary>
         internal static string EmptyLabel {
@@ -228,6 +237,15 @@ namespace HBR.OTPAuthenticator.Resources {
         internal static string Label {
             get {
                 return ResourceManager.GetString("Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Habilitar uso de login.
+        /// </summary>
+        internal static string LoginEnabledText {
+            get {
+                return ResourceManager.GetString("LoginEnabledText", resourceCulture);
             }
         }
         
@@ -327,6 +345,24 @@ namespace HBR.OTPAuthenticator.Resources {
         internal static string TimeBased {
             get {
                 return ResourceManager.GetString("TimeBased", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Modificar Clave.
+        /// </summary>
+        internal static string UpdateSecretCode {
+            get {
+                return ResourceManager.GetString("UpdateSecretCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Utilizar Login Biométrico.
+        /// </summary>
+        internal static string UseBiometrics {
+            get {
+                return ResourceManager.GetString("UseBiometrics", resourceCulture);
             }
         }
     }

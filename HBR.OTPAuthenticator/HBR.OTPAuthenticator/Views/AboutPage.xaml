@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="HBR.OTPAuthenticator.Views.AboutPage"
-             xmlns:resources="clr-namespace:HBR.OTPAuthenticator.Resources">
+             xmlns:resources="clr-namespace:HBR.OTPAuthenticator.Resources"
+             Title="{x:Static resources:StringResources.MenuAbout}">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>

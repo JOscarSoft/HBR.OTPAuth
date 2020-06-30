@@ -7,7 +7,7 @@ using System.Text;
 
 namespace HBR.OTPAuthenticator.BLL.Models
 {
-    [Table("OTPGenerator")]
+    [Table("Login")]
     public class Login
     {
         [PrimaryKey]

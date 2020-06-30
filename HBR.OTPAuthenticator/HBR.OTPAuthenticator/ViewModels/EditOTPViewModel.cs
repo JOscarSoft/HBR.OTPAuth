@@ -19,7 +19,7 @@ namespace HBR.OTPAuthenticator.ViewModels
         public string Label { get; set; }
         public string Issuer { get; set; }
         public OTPGenerator OtpGenerator;
-
+        
         public ICommand EditCommand => new RelayCommand(EditOtpGenerator);
 
         public EditOTPViewModel(OTPGenerator oTPGenerator)
@@ -49,7 +49,7 @@ namespace HBR.OTPAuthenticator.ViewModels
 
         public async void DeleteOtpGenerator()
         {
-            var accepted = await Application.Current.MainPage.DisplayAlert(StringResources.Error, StringResources.AcceptDelete, StringResources.Ok, StringResources.Cancel);
+            var accepted = await Application.Current.MainPage.DisplayAlert(StringResources.Confirm, StringResources.AcceptDelete, StringResources.Ok, StringResources.Cancel);
             if (accepted)
             {
                 await storageService.DeleteAsync(OtpGenerator);

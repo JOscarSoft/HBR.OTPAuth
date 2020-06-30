@@ -18,6 +18,7 @@ namespace HBR.OTPAuthenticator.ViewModels
         public ObservableCollection<MenuItemViewModel> Menus { get; set; }
         public ObservableCollection<MenuItemViewModel> MethodMenu { get; set; }
         public AddOTPViewModel AddOTPModel { get; set; }
+        public SetupViewModel SetupModel { get; set; }
         public OTPListViewModel OTPListModel { get; set; }
         public EditOTPViewModel EditOTPModel { get; set; }
         public ICommand AddOTPCommand => new RelayCommand(GoAddOTP); 

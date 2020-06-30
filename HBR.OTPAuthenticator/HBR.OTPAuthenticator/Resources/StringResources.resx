@@ -153,6 +153,9 @@
   <data name="Confirm" xml:space="preserve">
     <value>Confirmación</value>
   </data>
+  <data name="DisableLogin" xml:space="preserve">
+    <value>¿Está seguro de deshabilitar el uso de login para el acceso?</value>
+  </data>
   <data name="EmptyLabel" xml:space="preserve">
     <value>El campo "Nombre" es obligatorio</value>
   </data>
@@ -173,6 +176,9 @@
   </data>
   <data name="Label" xml:space="preserve">
     <value>Nombre</value>
+  </data>
+  <data name="LoginEnabledText" xml:space="preserve">
+    <value>Habilitar uso de login</value>
   </data>
   <data name="MenuAbout" xml:space="preserve">
     <value>Acerca de</value>
@@ -206,5 +212,11 @@
   </data>
   <data name="TimeBased" xml:space="preserve">
     <value>Basada en tiempo</value>
+  </data>
+  <data name="UpdateSecretCode" xml:space="preserve">
+    <value>Modificar Clave</value>
+  </data>
+  <data name="UseBiometrics" xml:space="preserve">
+    <value>Utilizar Login Biométrico</value>
   </data>
 </root>
