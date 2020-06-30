@@ -61,6 +61,51 @@ namespace HBR.OTPAuthenticator.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to HBR Authenticator.
+        /// </summary>
+        internal static string AboutAppName {
+            get {
+                return ResourceManager.GetString("AboutAppName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Soporte tecnico y FAQ:.
+        /// </summary>
+        internal static string AboutSupportLabel {
+            get {
+                return ResourceManager.GetString("AboutSupportLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://hbrgroup.com.do/soporte.html.
+        /// </summary>
+        internal static string AboutSupportURL {
+            get {
+                return ResourceManager.GetString("AboutSupportURL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 10/07/2020.
+        /// </summary>
+        internal static string AboutVersionDate {
+            get {
+                return ResourceManager.GetString("AboutVersionDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Versión 1.1.0.
+        /// </summary>
+        internal static string AboutVersionInfo {
+            get {
+                return ResourceManager.GetString("AboutVersionInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ¿Está seguro de eliminar esta clave?.
         /// </summary>
         internal static string AcceptDelete {

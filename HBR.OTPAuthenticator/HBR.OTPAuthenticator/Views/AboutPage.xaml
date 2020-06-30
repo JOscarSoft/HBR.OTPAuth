@@ -4,12 +4,47 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="HBR.OTPAuthenticator.Views.AboutPage">
+             x:Class="HBR.OTPAuthenticator.Views.AboutPage"
+             xmlns:resources="clr-namespace:HBR.OTPAuthenticator.Resources">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="About page"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <Image
+                    HorizontalOptions="CenterAndExpand" 
+                    HeightRequest="150"
+                    Source="about_image"></Image>
+                <Label
+                    Text="{x:Static resources:StringResources.AboutAppName}"
+                    HorizontalOptions="Center"
+                    FontAttributes="Bold"
+                    TextColor="{StaticResource PrimaryColor}"
+                    FontSize="Title"></Label>
+                <Label
+                    Text="{x:Static resources:StringResources.AboutVersionInfo}"
+                    HorizontalOptions="Center"
+                    FontSize="Subtitle"></Label>
+                <Label
+                    Text="{x:Static resources:StringResources.AboutVersionDate}"
+                    HorizontalOptions="Center"></Label>
+                <StackLayout
+                    Padding="15"
+                    Margin="0,50">
+                    <Label 
+                        Text="{x:Static resources:StringResources.AboutSupportLabel}"
+                        FontSize="Subtitle"
+                        FontAttributes="Bold"></Label>
+                    <Label 
+                        Text="{x:Static resources:StringResources.AboutSupportURL}"
+                        TextColor="Blue"
+                        TextDecorations="Underline">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Tapped="SuportLabel_Tapped">
+                            </TapGestureRecognizer>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
