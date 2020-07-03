@@ -3,6 +3,8 @@ using HBR.OTPAuthenticator.BLL.Models;
 using HBR.OTPAuthenticator.BLL.Services;
 using HBR.OTPAuthenticator.Resources;
 using HBR.OTPAuthenticator.Views;
+using Plugin.Fingerprint;
+using Plugin.Fingerprint.Abstractions;
 using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
@@ -25,9 +27,9 @@ namespace HBR.OTPAuthenticator.ViewModels
         private string newPassword;
         private string confirmPassword;
 
-        private bool manualSwitch;
+        private bool manualLoginEnabledSwitch;
+        private bool manualUseBiometricSwitch;
         public ICommand ButtonEditCommand => new RelayCommand(ButtonEdit);
-        public ICommand UseBiometricCommand => new RelayCommand(UseBiometric);
         public ICommand ChangePasswordCommand => new RelayCommand(ChangePassword);
 
         public bool LoginEnabled
@@ -36,7 +38,7 @@ namespace HBR.OTPAuthenticator.ViewModels
                 return this.loginEnabled; 
             }
             set {
-                if (manualSwitch)
+                if (manualLoginEnabledSwitch)
                 {
                     this.SetValue(ref this.loginEnabled, !value);
                     SetLoginEnabled();
@@ -44,7 +46,7 @@ namespace HBR.OTPAuthenticator.ViewModels
                 else
                 {
                     this.SetValue(ref this.loginEnabled, value);
-                    manualSwitch = true;
+                    manualLoginEnabledSwitch = true;
                 }
             }
         }
@@ -57,8 +59,23 @@ namespace HBR.OTPAuthenticator.ViewModels
 
         public bool UseBiometricAuth
         {
-            get { return this.useBiometricAuth; }
-            set { this.SetValue(ref this.useBiometricAuth, value); }
+            get
+            {
+                return this.useBiometricAuth;
+            }
+            set
+            {
+                if (manualUseBiometricSwitch)
+                {
+                    this.SetValue(ref this.useBiometricAuth, !value);
+                    SetLoginBiometricEnabled();
+                }
+                else
+                {
+                    this.SetValue(ref this.useBiometricAuth, value);
+                    manualUseBiometricSwitch = true;
+                }
+            }
         }
 
         public string ActualPassword
@@ -93,7 +110,7 @@ namespace HBR.OTPAuthenticator.ViewModels
                 UseBiometricAuth = loginInformation.UseBiometricAuth;
             }
             else
-                manualSwitch = true;
+                manualLoginEnabledSwitch = true;
         }
 
         private async void ButtonEdit()
@@ -111,7 +128,7 @@ namespace HBR.OTPAuthenticator.ViewModels
                 {
                     await loginService.DeleteAsync(loginInformation);
                     loginInformation = null;
-                    manualSwitch = false;
+                    manualLoginEnabledSwitch = false;
                     LoginEnabled = false;
                 }
             }
@@ -142,7 +159,7 @@ namespace HBR.OTPAuthenticator.ViewModels
                     };
 
                     await loginService.InsertOrReplaceAsync(loginInformation);
-                    manualSwitch = false;
+                    manualLoginEnabledSwitch = false;
                     LoginEnabled = true;
                 }
 
@@ -174,8 +191,50 @@ namespace HBR.OTPAuthenticator.ViewModels
             return null;
         }
 
-        private void UseBiometric()
+        private async void SetLoginBiometricEnabled()
         {
+            if (loginInformation.UseBiometricAuth)
+            {
+                var accepted = await Application.Current.MainPage.DisplayAlert(StringResources.Confirm, StringResources.DisableBiometric, StringResources.Ok, StringResources.Cancel);
+                if (accepted)
+                {
+                    loginInformation.UseBiometricAuth = false;
+                    await loginService.InsertOrReplaceAsync(loginInformation);
+                    manualUseBiometricSwitch = false;
+                    UseBiometricAuth = false;
+                }
+            }
+            else
+            {
+                bool validateBiometrics = await ValidateBiometrics();
+
+                if (validateBiometrics)
+                {
+                    loginInformation.UseBiometricAuth = true;
+                    await loginService.InsertOrReplaceAsync(loginInformation);
+                    manualUseBiometricSwitch = false;
+                    UseBiometricAuth = true;
+                }
+            }
+        }
+
+        private async Task<bool> ValidateBiometrics()
+        {
+            bool allowed = false;
+            var result = await CrossFingerprint.Current.IsAvailableAsync(true);
+            
+            if (result)
+            {
+                AuthenticationRequestConfiguration conf = new AuthenticationRequestConfiguration(StringResources.UseBiometrics, string.Empty);
+                var auth = await CrossFingerprint.Current.AuthenticateAsync(conf);
+                allowed = auth.Authenticated;
+            }
+            else
+            {
+                allowed = false;
+                await Application.Current.MainPage.DisplayAlert(StringResources.Error, StringResources.BiometricUnavailable, StringResources.Ok);
+            }
+            return allowed;
         }
     }
 }

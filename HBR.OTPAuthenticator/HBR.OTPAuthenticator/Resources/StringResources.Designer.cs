@@ -160,6 +160,15 @@ namespace HBR.OTPAuthenticator.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to El uso de login biométrico no está configurado en su dispositivo..
+        /// </summary>
+        internal static string BiometricUnavailable {
+            get {
+                return ResourceManager.GetString("BiometricUnavailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancelar.
         /// </summary>
         internal static string Cancel {
@@ -183,6 +192,15 @@ namespace HBR.OTPAuthenticator.Resources {
         internal static string ConfirmPassword {
             get {
                 return ResourceManager.GetString("ConfirmPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ¿Está seguro de deshabilitar el uso de login biométrico?.
+        /// </summary>
+        internal static string DisableBiometric {
+            get {
+                return ResourceManager.GetString("DisableBiometric", resourceCulture);
             }
         }
         

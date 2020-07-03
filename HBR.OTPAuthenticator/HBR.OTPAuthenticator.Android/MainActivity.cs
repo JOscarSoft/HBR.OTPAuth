@@ -7,6 +7,8 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using Plugin.Permissions;
+using Plugin.Fingerprint;
+using Plugin.CurrentActivity;
 
 namespace HBR.OTPAuthenticator.Droid
 {
@@ -23,6 +25,11 @@ namespace HBR.OTPAuthenticator.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             Rg.Plugins.Popup.Popup.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
+            //FingerPrint
+            CrossFingerprint.SetCurrentActivityResolver(() => this);
+            CrossCurrentActivity.Current.Init(this, savedInstanceState);
+
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

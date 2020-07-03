@@ -35,11 +35,6 @@
                         IsToggled="{Binding UseBiometricAuth}"
                         OnColor="{StaticResource PrimaryAccentColor}"
                         ThumbColor="{StaticResource PrimaryAccentColor}">
-                        <Switch.GestureRecognizers>
-                            <TapGestureRecognizer
-                                Command="{Binding UseBiometricCommand}">
-                            </TapGestureRecognizer>
-                        </Switch.GestureRecognizers>
                     </Switch>
                     <Label
                         Text="{x:Static resources:StringResources.UseBiometrics}"

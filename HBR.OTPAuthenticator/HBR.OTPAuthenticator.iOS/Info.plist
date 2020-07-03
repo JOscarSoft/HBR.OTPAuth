@@ -36,5 +36,7 @@
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Need camera access</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>New Entry</string>
 </dict>
 </plist>

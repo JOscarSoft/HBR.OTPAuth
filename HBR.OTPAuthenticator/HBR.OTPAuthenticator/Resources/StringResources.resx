@@ -150,6 +150,9 @@
   <data name="AddOTPTitle" xml:space="preserve">
     <value>Agregar Nueva Clave</value>
   </data>
+  <data name="BiometricUnavailable" xml:space="preserve">
+    <value>El uso de login biométrico no está configurado en su dispositivo.</value>
+  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancelar</value>
   </data>
@@ -158,6 +161,9 @@
   </data>
   <data name="ConfirmPassword" xml:space="preserve">
     <value>Confirmar clave</value>
+  </data>
+  <data name="DisableBiometric" xml:space="preserve">
+    <value>¿Está seguro de deshabilitar el uso de login biométrico?</value>
   </data>
   <data name="DisableLogin" xml:space="preserve">
     <value>¿Está seguro de deshabilitar el uso de login para el acceso?</value>
