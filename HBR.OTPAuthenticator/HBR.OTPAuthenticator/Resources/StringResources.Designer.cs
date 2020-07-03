@@ -115,6 +115,15 @@ namespace HBR.OTPAuthenticator.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Clave actual.
+        /// </summary>
+        internal static string ActualPassword {
+            get {
+                return ResourceManager.GetString("ActualPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Agregar.
         /// </summary>
         internal static string Add {
@@ -165,6 +174,15 @@ namespace HBR.OTPAuthenticator.Resources {
         internal static string Confirm {
             get {
                 return ResourceManager.GetString("Confirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirmar clave.
+        /// </summary>
+        internal static string ConfirmPassword {
+            get {
+                return ResourceManager.GetString("ConfirmPassword", resourceCulture);
             }
         }
         
@@ -286,6 +304,15 @@ namespace HBR.OTPAuthenticator.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nueva clave.
+        /// </summary>
+        internal static string NewPassword {
+            get {
+                return ResourceManager.GetString("NewPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Aceptar.
         /// </summary>
         internal static string Ok {
@@ -300,6 +327,60 @@ namespace HBR.OTPAuthenticator.Resources {
         internal static string OTPListTitle {
             get {
                 return ResourceManager.GetString("OTPListTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clave modificada con éxito.
+        /// </summary>
+        internal static string PasswordChangeSucces {
+            get {
+                return ResourceManager.GetString("PasswordChangeSucces", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Favor de ingresar la clave actual.
+        /// </summary>
+        internal static string PasswordEmptyActual {
+            get {
+                return ResourceManager.GetString("PasswordEmptyActual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Favor de ingresar la nueva clave.
+        /// </summary>
+        internal static string PasswordEmptyNew {
+            get {
+                return ResourceManager.GetString("PasswordEmptyNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Las claves  no coinciden, favor revisar la confirmación de la clave..
+        /// </summary>
+        internal static string PasswordErrorConfirm {
+            get {
+                return ResourceManager.GetString("PasswordErrorConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La clave debe tener un mínimo de 4 caracteres..
+        /// </summary>
+        internal static string PasswordLength {
+            get {
+                return ResourceManager.GetString("PasswordLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clave erronea, favor intentar nuevamente..
+        /// </summary>
+        internal static string PasswordNotActual {
+            get {
+                return ResourceManager.GetString("PasswordNotActual", resourceCulture);
             }
         }
         

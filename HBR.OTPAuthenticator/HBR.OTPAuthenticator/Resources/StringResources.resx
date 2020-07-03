@@ -135,6 +135,9 @@
   <data name="AcceptDelete" xml:space="preserve">
     <value>¿Está seguro de eliminar esta clave?</value>
   </data>
+  <data name="ActualPassword" xml:space="preserve">
+    <value>Clave actual</value>
+  </data>
   <data name="Add" xml:space="preserve">
     <value>Agregar</value>
   </data>
@@ -152,6 +155,9 @@
   </data>
   <data name="Confirm" xml:space="preserve">
     <value>Confirmación</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirmar clave</value>
   </data>
   <data name="DisableLogin" xml:space="preserve">
     <value>¿Está seguro de deshabilitar el uso de login para el acceso?</value>
@@ -192,11 +198,32 @@
   <data name="MenuSetup" xml:space="preserve">
     <value>Configurar acceso</value>
   </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Nueva clave</value>
+  </data>
   <data name="Ok" xml:space="preserve">
     <value>Aceptar</value>
   </data>
   <data name="OTPListTitle" xml:space="preserve">
     <value>Listado de Claves</value>
+  </data>
+  <data name="PasswordChangeSucces" xml:space="preserve">
+    <value>Clave modificada con éxito</value>
+  </data>
+  <data name="PasswordEmptyActual" xml:space="preserve">
+    <value>Favor de ingresar la clave actual</value>
+  </data>
+  <data name="PasswordEmptyNew" xml:space="preserve">
+    <value>Favor de ingresar la nueva clave</value>
+  </data>
+  <data name="PasswordErrorConfirm" xml:space="preserve">
+    <value>Las claves  no coinciden, favor revisar la confirmación de la clave.</value>
+  </data>
+  <data name="PasswordLength" xml:space="preserve">
+    <value>La clave debe tener un mínimo de 4 caracteres.</value>
+  </data>
+  <data name="PasswordNotActual" xml:space="preserve">
+    <value>Clave erronea, favor intentar nuevamente.</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Guardar</value>

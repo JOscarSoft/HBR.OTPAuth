@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-            xmlns:resources="clr-namespace:HBR.OTPAuthenticator.Resources"
+             xmlns:resources="clr-namespace:HBR.OTPAuthenticator.Resources"
              mc:Ignorable="d"
              BindingContext="{Binding Main, Source= {StaticResource Locator}}"
              Title="{x:Static resources:StringResources.MenuSetup}"
@@ -21,11 +21,6 @@
                         IsToggled="{Binding LoginEnabled}"
                         OnColor="{StaticResource PrimaryAccentColor}"
                         ThumbColor="{StaticResource PrimaryAccentColor}">
-                        <Switch.GestureRecognizers>
-                            <TapGestureRecognizer
-                                Command="{Binding LoginEnabledCommand}">
-                            </TapGestureRecognizer>
-                        </Switch.GestureRecognizers>
                     </Switch>
                     <Label
                         Text="{x:Static resources:StringResources.LoginEnabledText}"
@@ -53,7 +48,7 @@
                 </StackLayout>
                 <Button 
                     IsVisible="{Binding LoginEnabled}"
-                    Command="{Binding EditSecretCommand}"
+                    Command="{Binding ButtonEditCommand}"
                     Text="{x:Static resources:StringResources.UpdateSecretCode}">
                 </Button>
             </StackLayout>

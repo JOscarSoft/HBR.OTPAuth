@@ -19,11 +19,6 @@ namespace HBR.OTPAuthenticator.ViewModels
 
         protected void SetValue<T>(ref T backingField, T value, [CallerMemberName] string propertyName = null)
         {
-            if (EqualityComparer<T>.Default.Equals(backingField, value))
-            {
-                return;
-            }
-
             backingField = value;
             OnPropertyChanged(propertyName);
         }

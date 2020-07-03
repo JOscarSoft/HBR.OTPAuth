@@ -17,8 +17,8 @@ namespace HBR.OTPAuthenticator.BLL.Models
         [JsonIgnore]
         public virtual string SecretCode
         {
-            get => SecretBytes != null ? Base32Encoding.ToString(SecretBytes) : null;
-            set => SecretBytes = Base32Encoding.ToBytes(value);
+            get => SecretBytes != null ? Encoding.UTF8.GetString(SecretBytes) : null;
+            set => SecretBytes = Encoding.UTF8.GetBytes(value.ToCharArray());
         }
         public bool UseBiometricAuth { get; set; }
 
