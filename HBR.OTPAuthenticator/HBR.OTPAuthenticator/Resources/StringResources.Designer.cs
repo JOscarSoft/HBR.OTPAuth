@@ -331,6 +331,15 @@ namespace HBR.OTPAuthenticator.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Debe permitir el uso de login biométrico para utilizar esta opción. .
+        /// </summary>
+        internal static string NoBiometricAccess {
+            get {
+                return ResourceManager.GetString("NoBiometricAccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Debe permitir el uso de la camara para utilizar el escaner QR. .
         /// </summary>
         internal static string NoCameraAccess {

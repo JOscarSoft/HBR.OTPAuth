@@ -215,6 +215,8 @@ namespace HBR.OTPAuthenticator.ViewModels
                     manualUseBiometricSwitch = false;
                     UseBiometricAuth = true;
                 }
+                else
+                    await Application.Current.MainPage.DisplayAlert(StringResources.Error, StringResources.NoBiometricAccess, StringResources.Ok);
             }
         }
 
