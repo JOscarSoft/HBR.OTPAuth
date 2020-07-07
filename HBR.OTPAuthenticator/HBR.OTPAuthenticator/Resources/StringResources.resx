@@ -207,6 +207,9 @@
   <data name="NewPassword" xml:space="preserve">
     <value>Nueva clave</value>
   </data>
+  <data name="NoCameraAccess" xml:space="preserve">
+    <value>Debe permitir el uso de la camara para utilizar el escaner QR. </value>
+  </data>
   <data name="Ok" xml:space="preserve">
     <value>Aceptar</value>
   </data>
@@ -251,5 +254,8 @@
   </data>
   <data name="UseBiometrics" xml:space="preserve">
     <value>Utilizar Login Biométrico</value>
+  </data>
+  <data name="UseBiometricsInfo" xml:space="preserve">
+    <value>Favor de hacer login para confirmar</value>
   </data>
 </root>

@@ -74,25 +74,25 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ImageAsset Include="Assets.xcassets\ic_action_about.imageset\ic_action_about.png">
+    <ImageAsset Include="Assets.xcassets\ic_action_about.imageset\ic_action_about3.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\ic_action_about.imageset\ic_action_about1.png">
+    <ImageAsset Include="Assets.xcassets\ic_action_about.imageset\ic_action_about4.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\ic_action_about.imageset\ic_action_about2.png">
+    <ImageAsset Include="Assets.xcassets\ic_action_about.imageset\ic_action_about5.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\ic_action_add.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\ic_action_add.imageset\ic_action_add.png">
+    <ImageAsset Include="Assets.xcassets\ic_action_add.imageset\ic_action_add3.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\ic_action_add.imageset\ic_action_add1.png">
+    <ImageAsset Include="Assets.xcassets\ic_action_add.imageset\ic_action_add4.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\ic_action_add.imageset\ic_action_add2.png">
+    <ImageAsset Include="Assets.xcassets\ic_action_add.imageset\ic_action_add5.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\ic_action_delete.imageset\ic_accion_delete.png">
@@ -134,25 +134,25 @@
     <ImageAsset Include="Assets.xcassets\ic_action_security.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\ic_action_security.imageset\ic_action_security.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\ic_action_security.imageset\ic_action_security1.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\ic_action_security.imageset\ic_action_security2.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\ic_action_about.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\refresh_code.imageset\refresh_code3.png">
+    <ImageAsset Include="Assets.xcassets\ic_action_security.imageset\ic_action_security3.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\refresh_code.imageset\refresh_code4.png">
+    <ImageAsset Include="Assets.xcassets\ic_action_security.imageset\ic_action_security4.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\refresh_code.imageset\refresh_code5.png">
+    <ImageAsset Include="Assets.xcassets\ic_action_security.imageset\ic_action_security5.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\refresh_code.imageset\refresh_code.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\refresh_code.imageset\refresh_code1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\refresh_code.imageset\refresh_code2.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\refresh_code_disabled.imageset\Contents.json">
@@ -161,13 +161,13 @@
     <ImageAsset Include="Assets.xcassets\refresh_code.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\refresh_code_disabled.imageset\refresh_code_disabled.png">
+    <ImageAsset Include="Assets.xcassets\refresh_code_disabled.imageset\refresh_code_disabled3.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\refresh_code_disabled.imageset\refresh_code_disabled1.png">
+    <ImageAsset Include="Assets.xcassets\refresh_code_disabled.imageset\refresh_code_disabled4.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\refresh_code_disabled.imageset\refresh_code_disabled2.png">
+    <ImageAsset Include="Assets.xcassets\refresh_code_disabled.imageset\refresh_code_disabled5.png">
       <Visible>false</Visible>
     </ImageAsset>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -231,6 +231,9 @@
     </PackageReference>
     <PackageReference Include="Rg.Plugins.Popup">
       <Version>1.2.0.223</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugins.Forms.ProgressRing">
+      <Version>0.1.2</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="4.3.0.991250" />
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />

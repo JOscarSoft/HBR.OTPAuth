@@ -5,7 +5,7 @@ using HBR.OTPAuthenticator.iOS;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportEffect(typeof(iOSLongPressedEffect), "LongPressedEffect")]
+[assembly: ExportEffect(typeof(iOSSimplePressedEffect), "SimplePressedEffect")]
 namespace HBR.OTPAuthenticator.iOS
 {
     public class iOSSimplePressedEffect : PlatformEffect
@@ -33,7 +33,7 @@ namespace HBR.OTPAuthenticator.iOS
         // Invoke the command if there is one       
         private void HandleLongClick(UITapGestureRecognizer sender)
         {
-            if (sender.State == UIGestureRecognizerState.Began)
+            if (sender.State == UIGestureRecognizerState.Ended)
             {
                 var command = SimplePressedEffect.GetCommand(Element);
                 command?.Execute(SimplePressedEffect.GetCommandParameter(Element));

@@ -104,6 +104,8 @@ namespace HBR.OTPAuthenticator.ViewModels
                         });
                     };
                 }
+                else
+                    await Application.Current.MainPage.DisplayAlert(StringResources.Error, StringResources.NoCameraAccess, StringResources.Ok);
             }
             catch
             {

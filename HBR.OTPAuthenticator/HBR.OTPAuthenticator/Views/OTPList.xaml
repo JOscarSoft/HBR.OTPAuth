@@ -6,6 +6,7 @@
              mc:Ignorable="d"
              x:Class="HBR.OTPAuthenticator.Views.OTPList"
              xmlns:resources="clr-namespace:HBR.OTPAuthenticator.Resources"
+             xmlns:control="clr-namespace:ProgressRingControl.Forms.Plugin;assembly=ProgressRing.Forms.Plugin"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              xmlns:local="clr-namespace:HBR.OTPAuthenticator"
              Title="{x:Static resources:StringResources.OTPListTitle}">
@@ -26,16 +27,17 @@
             <ListView
                 HasUnevenRows="True"
                 ItemsSource="{Binding OTPList}"
+                SeparatorVisibility="None"
                 SelectionMode="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <Grid 
                                 BackgroundColor="Transparent"
-                                local:LongPressedEffect.Command="{Binding SelectOTPCommand}" 
-                                local:LongPressedEffect.CommandParameter="{Binding .}"
                                 local:SimplePressedEffect.Command="{Binding ChangeSelectCommand}"
-                                local:SimplePressedEffect.CommandParameter="{Binding .}">
+                                local:SimplePressedEffect.CommandParameter="{Binding .}"
+                                local:LongPressedEffect.Command="{Binding SelectOTPCommand}" 
+                                local:LongPressedEffect.CommandParameter="{Binding .}">
                                 <Grid.Triggers>
                                     <DataTrigger 
                                         TargetType="Grid" 
@@ -45,12 +47,12 @@
                                     </DataTrigger>
                                 </Grid.Triggers>
                                 <Grid.Effects>
-                                    <local:LongPressedEffect/>
                                     <local:SimplePressedEffect/>
+                                    <local:LongPressedEffect/>
                                 </Grid.Effects>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="50"/>
                                 </Grid.ColumnDefinitions>
                                 <StackLayout
                                     Grid.Column="0"
@@ -76,20 +78,23 @@
                                         TextColor="{StaticResource OTPInformationColor}">
                                     </Label>
                                 </StackLayout>
-                                <ProgressBar
-                                    Progress="{Binding Progress}"
-                                    ProgressColor="{StaticResource PrimaryColor}"
+                                <control:ProgressRing 
+                                    RingThickness="30"
+                                    RingProgressColor="{StaticResource PrimaryColor}"
+                                    RingBaseColor="Transparent"
+                                    ScaleY="0.5"
+                                    ScaleX="0.5"
                                     Grid.Column="1"
-                                    IsVisible="{Binding TimeBased}">
-                                </ProgressBar>
+                                    IsVisible="{Binding TimeBased}"
+                                    Progress="{Binding Progress}">
+                                </control:ProgressRing>
                                 <ImageButton
                                     Command="{Binding ManualRefreshCommand}"
-                                    HorizontalOptions="Start"
                                     VerticalOptions="Center" 
+                                    HorizontalOptions="Center"
                                     BackgroundColor="Transparent"
                                     BorderColor="Transparent"
                                     Source="refresh_code_disabled.png"
-                                    Padding="0,0,12,0"
                                     IsVisible="{Binding TimeBased, Converter={StaticResource BoolConverter}}"
                                     Grid.Column="1">
                                     <ImageButton.Triggers>

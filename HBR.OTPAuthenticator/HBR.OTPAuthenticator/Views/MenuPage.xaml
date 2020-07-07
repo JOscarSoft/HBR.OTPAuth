@@ -17,6 +17,7 @@
             </Image>
 
             <ListView
+                SeparatorVisibility="None"
                 BackgroundColor="Transparent"
                 ItemsSource="{Binding Menus}"
                 HasUnevenRows="True">

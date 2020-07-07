@@ -331,6 +331,15 @@ namespace HBR.OTPAuthenticator.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Debe permitir el uso de la camara para utilizar el escaner QR. .
+        /// </summary>
+        internal static string NoCameraAccess {
+            get {
+                return ResourceManager.GetString("NoCameraAccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Aceptar.
         /// </summary>
         internal static string Ok {
@@ -462,6 +471,15 @@ namespace HBR.OTPAuthenticator.Resources {
         internal static string UseBiometrics {
             get {
                 return ResourceManager.GetString("UseBiometrics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Favor de hacer login para confirmar.
+        /// </summary>
+        internal static string UseBiometricsInfo {
+            get {
+                return ResourceManager.GetString("UseBiometricsInfo", resourceCulture);
             }
         }
     }

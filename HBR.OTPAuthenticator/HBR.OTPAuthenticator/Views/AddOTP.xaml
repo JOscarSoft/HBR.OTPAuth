@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:resources="clr-namespace:HBR.OTPAuthenticator.Resources"
              mc:Ignorable="d"
+             xmlns:control="clr-namespace:ProgressRingControl.Forms.Plugin;assembly=ProgressRing.Forms.Plugin"
              BindingContext="{Binding Main, Source= {StaticResource Locator}}"
              Title="{x:Static resources:StringResources.AddOTPTitle}"
              x:Class="HBR.OTPAuthenticator.Views.AddOTP">
@@ -48,7 +49,7 @@
                 <Button 
                     Command="{Binding AddOtpCommand}"
                     Text="{x:Static resources:StringResources.Add}">
-                    
+
                 </Button>
             </StackLayout>
         </ScrollView>

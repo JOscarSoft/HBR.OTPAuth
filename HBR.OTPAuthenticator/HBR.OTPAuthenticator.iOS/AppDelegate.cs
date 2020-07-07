@@ -26,6 +26,7 @@ namespace HBR.OTPAuthenticator.iOS
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 
+            ProgressRingControl.Forms.Plugin.iOS.ProgressRingRenderer.Init();
             return base.FinishedLaunching(app, options);
         }
     }

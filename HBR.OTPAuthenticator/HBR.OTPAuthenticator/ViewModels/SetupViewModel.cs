@@ -225,7 +225,7 @@ namespace HBR.OTPAuthenticator.ViewModels
             
             if (result)
             {
-                AuthenticationRequestConfiguration conf = new AuthenticationRequestConfiguration(StringResources.UseBiometrics, string.Empty);
+                AuthenticationRequestConfiguration conf = new AuthenticationRequestConfiguration(StringResources.UseBiometrics, StringResources.UseBiometricsInfo);
                 var auth = await CrossFingerprint.Current.AuthenticateAsync(conf);
                 allowed = auth.Authenticated;
             }
