@@ -6,7 +6,6 @@
              mc:Ignorable="d"
              x:Class="HBR.OTPAuthenticator.Views.MenuPage"
              BindingContext="{Binding Main, Source= {StaticResource Locator}}"
-             xmlns:resources="clr-namespace:HBR.OTPAuthenticator.Resources"
              Title="Menu">
     <ContentPage.Content>
         <StackLayout
@@ -19,6 +18,7 @@
             <ListView
                 SeparatorVisibility="None"
                 BackgroundColor="Transparent"
+                SeparatorColor="#e6e6e6"
                 ItemsSource="{Binding Menus}"
                 HasUnevenRows="True">
                 <ListView.ItemTemplate>

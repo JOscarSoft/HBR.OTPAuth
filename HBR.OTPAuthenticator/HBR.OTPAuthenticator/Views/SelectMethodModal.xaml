@@ -33,7 +33,8 @@
             <ListView
                 BackgroundColor="Transparent"
                 ItemsSource="{Binding MethodMenu}"
-                HasUnevenRows="True">
+                HasUnevenRows="True"
+                SeparatorColor="#e6e6e6">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

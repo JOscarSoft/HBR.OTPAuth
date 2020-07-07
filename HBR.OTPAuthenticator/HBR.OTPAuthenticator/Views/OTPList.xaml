@@ -27,8 +27,9 @@
             <ListView
                 HasUnevenRows="True"
                 ItemsSource="{Binding OTPList}"
-                SeparatorVisibility="None"
-                SelectionMode="None">
+                SelectionMode="None"
+                Footer=""
+                SeparatorColor="#e6e6e6">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -79,7 +80,7 @@
                                     </Label>
                                 </StackLayout>
                                 <control:ProgressRing 
-                                    RingThickness="30"
+                                    RingThickness="25"
                                     RingProgressColor="{StaticResource PrimaryColor}"
                                     RingBaseColor="Transparent"
                                     ScaleY="0.5"
