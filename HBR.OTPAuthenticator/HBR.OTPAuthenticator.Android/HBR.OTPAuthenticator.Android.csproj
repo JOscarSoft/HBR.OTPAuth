@@ -15,7 +15,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -114,7 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HBR.OTPAuthenticator\HBR.OTPAuthenticator.csproj">
-      <Project>{0C6112E2-1A00-4DC5-9B18-44EB56A91FBF}</Project>
+      <Project>{29FBA1F9-3D37-4E85-B8EA-FE67F9842D4F}</Project>
       <Name>HBR.OTPAuthenticator</Name>
     </ProjectReference>
   </ItemGroup>
