@@ -37,6 +37,6 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Need camera access</string>
 	<key>NSFaceIDUsageDescription</key>
-	<string>New Entry</string>
+	<string>Need face id access</string>
 </dict>
 </plist>
