@@ -19,7 +19,7 @@ namespace HBR.OTPAuthenticator.ViewModels
     {
         private readonly LoginService loginService;
         private Login loginInformation { get; set; }
-
+        
         private bool loginEnabled; 
         private bool useBiometricAuth;
         private bool editingPassword;
@@ -110,7 +110,10 @@ namespace HBR.OTPAuthenticator.ViewModels
                 UseBiometricAuth = loginInformation.UseBiometricAuth;
             }
             else
+            {
                 manualLoginEnabledSwitch = true;
+                manualUseBiometricSwitch = true;
+            }
         }
 
         private async void ButtonEdit()
