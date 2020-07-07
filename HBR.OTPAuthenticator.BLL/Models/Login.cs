@@ -17,8 +17,8 @@ namespace HBR.OTPAuthenticator.BLL.Models
         [JsonIgnore]
         public virtual string SecretCode
         {
-            get => SecretBytes != null ? Encoding.UTF8.GetString(SecretBytes) : null;
-            set => SecretBytes = Encoding.UTF8.GetBytes(value.ToCharArray());
+            get => SecretBytes != null ? getASCIIString(Encoding.ASCII.GetString(SecretBytes)) : null;
+            set => SecretBytes = Encoding.ASCII.GetBytes(value.ToCharArray());
         }
         public bool UseBiometricAuth { get; set; }
 
@@ -34,6 +34,14 @@ namespace HBR.OTPAuthenticator.BLL.Models
         public Login()
         {
             Uid = Guid.NewGuid().ToString();
+        }
+
+        private string getASCIIString(string code)
+        {
+            int i = code.IndexOf("\0");
+            if (i >= 0)
+                code = code.Substring(0, i);
+            return code;
         }
     }
 }

@@ -21,6 +21,7 @@ namespace HBR.OTPAuthenticator.ViewModels
         public SetupViewModel SetupModel { get; set; }
         public OTPListViewModel OTPListModel { get; set; }
         public EditOTPViewModel EditOTPModel { get; set; }
+        public LoginViewModel LoginModel { get; set; }
         public ICommand AddOTPCommand => new RelayCommand(GoAddOTP); 
         public ICommand ShowEditCommand => new RelayCommand(ShowEdit);
         public ICommand DeleteCommand => new RelayCommand(DeleteOTP);

@@ -9409,64 +9409,67 @@ namespace HBR.OTPAuthenticator.Droid
 			public const int ic_mtrl_chip_close_circle = 2131230950;
 			
 			// aapt resource value: 0x7F0800E7
-			public const int menu_image = 2131230951;
+			public const int LoginImage = 2131230951;
 			
 			// aapt resource value: 0x7F0800E8
-			public const int mtrl_snackbar_background = 2131230952;
+			public const int menu_image = 2131230952;
 			
 			// aapt resource value: 0x7F0800E9
-			public const int mtrl_tabs_default_indicator = 2131230953;
+			public const int mtrl_snackbar_background = 2131230953;
 			
 			// aapt resource value: 0x7F0800EA
-			public const int navigation_empty_icon = 2131230954;
+			public const int mtrl_tabs_default_indicator = 2131230954;
 			
 			// aapt resource value: 0x7F0800EB
-			public const int notification_action_background = 2131230955;
+			public const int navigation_empty_icon = 2131230955;
 			
 			// aapt resource value: 0x7F0800EC
-			public const int notification_bg = 2131230956;
+			public const int notification_action_background = 2131230956;
 			
 			// aapt resource value: 0x7F0800ED
-			public const int notification_bg_low = 2131230957;
+			public const int notification_bg = 2131230957;
 			
 			// aapt resource value: 0x7F0800EE
-			public const int notification_bg_low_normal = 2131230958;
+			public const int notification_bg_low = 2131230958;
 			
 			// aapt resource value: 0x7F0800EF
-			public const int notification_bg_low_pressed = 2131230959;
+			public const int notification_bg_low_normal = 2131230959;
 			
 			// aapt resource value: 0x7F0800F0
-			public const int notification_bg_normal = 2131230960;
+			public const int notification_bg_low_pressed = 2131230960;
 			
 			// aapt resource value: 0x7F0800F1
-			public const int notification_bg_normal_pressed = 2131230961;
+			public const int notification_bg_normal = 2131230961;
 			
 			// aapt resource value: 0x7F0800F2
-			public const int notification_icon_background = 2131230962;
+			public const int notification_bg_normal_pressed = 2131230962;
 			
 			// aapt resource value: 0x7F0800F3
-			public const int notification_template_icon_bg = 2131230963;
+			public const int notification_icon_background = 2131230963;
 			
 			// aapt resource value: 0x7F0800F4
-			public const int notification_template_icon_low_bg = 2131230964;
+			public const int notification_template_icon_bg = 2131230964;
 			
 			// aapt resource value: 0x7F0800F5
-			public const int notification_tile_bg = 2131230965;
+			public const int notification_template_icon_low_bg = 2131230965;
 			
 			// aapt resource value: 0x7F0800F6
-			public const int notify_panel_notification_icon_bg = 2131230966;
+			public const int notification_tile_bg = 2131230966;
 			
 			// aapt resource value: 0x7F0800F7
-			public const int refresh_code = 2131230967;
+			public const int notify_panel_notification_icon_bg = 2131230967;
 			
 			// aapt resource value: 0x7F0800F8
-			public const int refresh_code_disabled = 2131230968;
+			public const int refresh_code = 2131230968;
 			
 			// aapt resource value: 0x7F0800F9
-			public const int tooltip_frame_dark = 2131230969;
+			public const int refresh_code_disabled = 2131230969;
 			
 			// aapt resource value: 0x7F0800FA
-			public const int tooltip_frame_light = 2131230970;
+			public const int tooltip_frame_dark = 2131230970;
+			
+			// aapt resource value: 0x7F0800FB
+			public const int tooltip_frame_light = 2131230971;
 			
 			static Drawable()
 			{

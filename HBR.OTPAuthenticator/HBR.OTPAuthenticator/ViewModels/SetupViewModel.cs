@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using HBR.OTPAuthenticator.BLL.Models;
 using HBR.OTPAuthenticator.BLL.Services;
+using HBR.OTPAuthenticator.Helper;
 using HBR.OTPAuthenticator.Resources;
 using HBR.OTPAuthenticator.Views;
 using Plugin.Fingerprint;
@@ -209,7 +210,7 @@ namespace HBR.OTPAuthenticator.ViewModels
             }
             else
             {
-                bool validateBiometrics = await ValidateBiometrics();
+                bool validateBiometrics = await BiometricAuthHelper.ValidateBiometrics(true);
 
                 if (validateBiometrics)
                 {
@@ -221,25 +222,6 @@ namespace HBR.OTPAuthenticator.ViewModels
                 else
                     await Application.Current.MainPage.DisplayAlert(StringResources.Error, StringResources.NoBiometricAccess, StringResources.Ok);
             }
-        }
-
-        private async Task<bool> ValidateBiometrics()
-        {
-            bool allowed = false;
-            var result = await CrossFingerprint.Current.IsAvailableAsync(true);
-            
-            if (result)
-            {
-                AuthenticationRequestConfiguration conf = new AuthenticationRequestConfiguration(StringResources.UseBiometrics, StringResources.UseBiometricsInfo);
-                var auth = await CrossFingerprint.Current.AuthenticateAsync(conf);
-                allowed = auth.Authenticated;
-            }
-            else
-            {
-                allowed = false;
-                await Application.Current.MainPage.DisplayAlert(StringResources.Error, StringResources.BiometricUnavailable, StringResources.Ok);
-            }
-            return allowed;
         }
     }
 }

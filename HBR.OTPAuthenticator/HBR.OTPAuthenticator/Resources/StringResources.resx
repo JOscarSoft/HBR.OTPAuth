@@ -192,6 +192,9 @@
   <data name="LoginEnabledText" xml:space="preserve">
     <value>Habilitar uso de login</value>
   </data>
+  <data name="LoginFailed" xml:space="preserve">
+    <value>Contraseña inválida</value>
+  </data>
   <data name="MenuAbout" xml:space="preserve">
     <value>Acerca de</value>
   </data>
