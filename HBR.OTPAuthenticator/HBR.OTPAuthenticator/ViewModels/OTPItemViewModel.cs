@@ -34,7 +34,7 @@ namespace HBR.OTPAuthenticator.ViewModels
 
         public string OTP
         {
-            get { return $"{this.otp.Substring(0, 3)} {this.otp.Substring(3, 3)}"; }
+            get { return this.otp.Length == 6 ? $"{this.otp.Substring(0, 3)} {this.otp.Substring(3, 3)}" : this.otp; }
             set { this.SetValue(ref this.otp, value); }
         }
         public bool AllowRefresh
