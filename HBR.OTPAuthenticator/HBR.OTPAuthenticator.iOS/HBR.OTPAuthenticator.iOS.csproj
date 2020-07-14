@@ -175,9 +175,6 @@
     <ImageAsset Include="Assets.xcassets\refresh_code.imageset\refresh_code5.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\TblLaunchImage.imageset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\act_launch_bg.imageset\main-bg-image.png">
       <Visible>false</Visible>
     </ImageAsset>
@@ -200,15 +197,6 @@
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\refresh_code_disabled.imageset\refresh_code_disabled5.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\TblLaunchImage.imageset\tbl-main-bg-image.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\TblLaunchImage.imageset\tbl-main-bg-image@2x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\TblLaunchImage.imageset\tbl-main-bg-image@3x.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -247,6 +235,8 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon29.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\act_launch_bg.imageset\tbl-main-bg-image.png" />
+    <ImageAsset Include="Assets.xcassets\act_launch_bg.imageset\tbl-main-bg-image%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -278,7 +268,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\HBR.OTPAuthenticator\HBR.OTPAuthenticator.csproj">
-      <Project>{0C6112E2-1A00-4DC5-9B18-44EB56A91FBF}</Project>
+      <Project>{29FBA1F9-3D37-4E85-B8EA-FE67F9842D4F}</Project>
       <Name>HBR.OTPAuthenticator</Name>
     </ProjectReference>
   </ItemGroup>
