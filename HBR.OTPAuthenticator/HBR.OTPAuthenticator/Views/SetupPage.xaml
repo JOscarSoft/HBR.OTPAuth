@@ -19,7 +19,7 @@
                     Padding="0,8,0,15">
                     <Switch
                         IsToggled="{Binding LoginEnabled}"
-                        OnColor="{StaticResource PrimaryColor}"
+                        OnColor="{StaticResource PrimaryAccentColor}"
                         ThumbColor="{StaticResource PrimaryColor}">
                     </Switch>
                     <Label
@@ -33,7 +33,7 @@
                     IsVisible="{Binding LoginEnabled}">
                     <Switch
                         IsToggled="{Binding UseBiometricAuth}"
-                        OnColor="{StaticResource PrimaryColor}"
+                        OnColor="{StaticResource PrimaryAccentColor}"
                         ThumbColor="{StaticResource PrimaryColor}">
                     </Switch>
                     <Label

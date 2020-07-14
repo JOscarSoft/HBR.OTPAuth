@@ -40,7 +40,7 @@
                     Padding="0,8,0,15">
                     <Switch
                         IsToggled="{Binding TimeBased}"
-                        OnColor="{StaticResource PrimaryColor}"
+                        OnColor="{StaticResource PrimaryAccentColor}"
                         ThumbColor="{StaticResource PrimaryColor}"></Switch>
                     <Label
                         Text="{x:Static resources:StringResources.TimeBased}">

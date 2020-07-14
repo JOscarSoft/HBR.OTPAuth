@@ -11,6 +11,7 @@
         <ScrollView>
             <StackLayout>
                 <Image
+                    Margin="0,20"
                     HorizontalOptions="CenterAndExpand" 
                     HeightRequest="150"
                     Source="about_image"></Image>

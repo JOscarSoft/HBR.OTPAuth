@@ -149,6 +149,15 @@
     <ImageAsset Include="Assets.xcassets\act_launch_bg.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\refresh_code.imageset\refresh_code3.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\refresh_code.imageset\refresh_code4.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\refresh_code.imageset\refresh_code5.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\TblLaunchImage.imageset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
@@ -159,15 +168,6 @@
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\act_launch_bg.imageset\main-bg-image@3x.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\refresh_code.imageset\refresh_code.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\refresh_code.imageset\refresh_code1.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\refresh_code.imageset\refresh_code2.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\refresh_code_disabled.imageset\Contents.json">
