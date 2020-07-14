@@ -68,10 +68,15 @@
     <Compile Include="iOSSimplePressedEffect.cs" />
     <Compile Include="iOSLongPressedEffect.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Resources\Launch.cs" />
+    <Compile Include="Resources\Launch.designer.cs">
+      <DependentUpon>Launch.cs</DependentUpon>
+    </Compile>
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <InterfaceDefinition Include="Resources\Launch.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\ic_action_about.imageset\ic_action_about3.png">
@@ -206,7 +211,6 @@
     <ImageAsset Include="Assets.xcassets\TblLaunchImage.imageset\tbl-main-bg-image@3x.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
