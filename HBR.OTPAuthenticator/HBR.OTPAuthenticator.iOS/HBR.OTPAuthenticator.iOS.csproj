@@ -235,8 +235,12 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon29.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\act_launch_bg.imageset\tbl-main-bg-image.png" />
-    <ImageAsset Include="Assets.xcassets\act_launch_bg.imageset\tbl-main-bg-image%403x.png" />
+    <ImageAsset Include="Assets.xcassets\act_launch_bg.imageset\tbl-main-bg-image.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\act_launch_bg.imageset\tbl-main-bg-image%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
