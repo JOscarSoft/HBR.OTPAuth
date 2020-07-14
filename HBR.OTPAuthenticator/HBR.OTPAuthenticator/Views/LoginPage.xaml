@@ -21,6 +21,7 @@
                 <Entry 
                     Text="{Binding Password}"
                     Placeholder="Contraseña"
+                    BackgroundColor="Transparent"
                     IsPassword="True"
                     TextColor="White"
                     PlaceholderColor="White"

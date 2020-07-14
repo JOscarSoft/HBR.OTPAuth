@@ -11,6 +11,7 @@
         <StackLayout
             Padding="10">
             <Image
+                Margin="0,35,0,15"
                 HeightRequest="150"
                 Source="menu_image">
             </Image>
