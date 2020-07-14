@@ -15,9 +15,9 @@ namespace HBR.OTPAuthenticator.BLL
     public class SQLiteService
     {
         private SemaphoreSlim ConnectionMutex { get; } = new SemaphoreSlim(1, 1);
-        internal const string AppKeychainId = "Token";
+        internal const string AppKeychainId = "HBRAuth";
         internal const string DbFileName = "Data.db3";
-        internal const string PasswordSalt = "bz77KNXdP,Bc4Acg";
+        internal const string PasswordSalt = "20OTP,Hbr.Soft20";
 
         private readonly Lazy<byte[]> EncryptionKey;
         internal FileInfo DbFile { get; }
