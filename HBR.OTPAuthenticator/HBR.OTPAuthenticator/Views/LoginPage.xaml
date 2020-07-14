@@ -5,33 +5,41 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             BackgroundImageSource="act_launch_bg"
              x:Class="HBR.OTPAuthenticator.Views.LoginPage">
     <ContentPage.Content>
-        <ScrollView
-            BindingContext="{Binding LoginModel}">
+        <RelativeLayout>
+            <Image
+                Source="act_launch_bg"
+                Aspect="AspectFill"
+                RelativeLayout.WidthConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                RelativeLayout.HeightConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height}">
+            </Image>
+            <ScrollView
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                BindingContext="{Binding LoginModel}">
 
-            <StackLayout
-                Padding="20">
-                <Image
-                    Margin="0,25"
-                    HorizontalOptions="CenterAndExpand" 
-                    HeightRequest="150"
-                    Source="LoginImage"/>
-                <Entry 
-                    Text="{Binding Password}"
-                    Placeholder="Contraseña"
-                    BackgroundColor="Transparent"
-                    IsPassword="True"
-                    TextColor="White"
-                    PlaceholderColor="White"
-                    VerticalTextAlignment="Center"/>
-                <Button 
-                    Text="Acceder"
-                    BackgroundColor="{StaticResource PrimaryAccentColor}"
-                    TextColor="White"
-                    Command="{Binding LoginCommand}"/>
-            </StackLayout>
-        </ScrollView>
+                <StackLayout
+                    Padding="20">
+                    <Image
+                        Margin="0,25"
+                        HorizontalOptions="CenterAndExpand" 
+                        HeightRequest="150"
+                        Source="LoginImage"/>
+                    <Entry 
+                        Text="{Binding Password}"           
+                        Placeholder="Contraseña"
+                        BackgroundColor="Transparent"
+                        IsPassword="True"
+                        TextColor="White"
+                        PlaceholderColor="White"
+                        VerticalTextAlignment="Center"/>
+                    <Button 
+                        Text="Acceder"
+                        BackgroundColor="{StaticResource PrimaryAccentColor}"
+                        TextColor="White"
+                        Command="{Binding LoginCommand}"/>
+                </StackLayout>
+            </ScrollView>
+        </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>
