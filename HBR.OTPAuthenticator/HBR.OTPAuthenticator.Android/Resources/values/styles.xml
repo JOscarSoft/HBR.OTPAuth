@@ -21,4 +21,39 @@
          colorControlHighlight and colorSwitchThumbNormal. -->
     <item name="windowActionModeOverlay">true</item>
   </style>
+
+    <!-- Launch screen -->
+    <style name="BrandLogo">
+        <item name="android:src">@drawable/img_app_brand_logo_regular</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_above">@id/launch_screen_brand_name</item>
+    </style>
+	
+    <style name="LaunchScreen" parent="MainTheme">
+        <item name="android:windowBackground">@drawable/act_launch_bg</item>
+    </style>
+
+    <style name="LaunchScreen.MainContainer" parent="LaunchScreen">
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
+    <style name="LaunchScreen.BrandLogo" parent="BrandLogo">
+        <item name="android:layout_marginBottom">26dp</item>
+    </style>
+
+    <style name="LaunchScreen.AppBrandName">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_marginBottom">130dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
 </resources>

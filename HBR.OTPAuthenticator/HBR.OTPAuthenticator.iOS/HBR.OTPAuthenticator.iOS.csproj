@@ -146,6 +146,21 @@
     <ImageAsset Include="Assets.xcassets\ic_action_security.imageset\ic_action_security5.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\act_launch_bg.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\TblLaunchImage.imageset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\act_launch_bg.imageset\main-bg-image.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\act_launch_bg.imageset\main-bg-image@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\act_launch_bg.imageset\main-bg-image@3x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\refresh_code.imageset\refresh_code.png">
       <Visible>false</Visible>
     </ImageAsset>
@@ -168,6 +183,15 @@
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\refresh_code_disabled.imageset\refresh_code_disabled5.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\TblLaunchImage.imageset\tbl-main-bg-image.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\TblLaunchImage.imageset\tbl-main-bg-image@2x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\TblLaunchImage.imageset\tbl-main-bg-image@3x.png">
       <Visible>false</Visible>
     </ImageAsset>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

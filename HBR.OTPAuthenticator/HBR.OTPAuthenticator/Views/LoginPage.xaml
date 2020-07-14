@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             BackgroundImageSource="act_launch_bg"
              x:Class="HBR.OTPAuthenticator.Views.LoginPage">
     <ContentPage.Content>
         <ScrollView
@@ -13,7 +14,7 @@
             <StackLayout
                 Padding="20">
                 <Image
-                    Margin="0,10"
+                    Margin="0,25"
                     HorizontalOptions="CenterAndExpand" 
                     HeightRequest="150"
                     Source="LoginImage"/>
@@ -21,9 +22,13 @@
                     Text="{Binding Password}"
                     Placeholder="Contraseña"
                     IsPassword="True"
+                    TextColor="White"
+                    PlaceholderColor="White"
                     VerticalTextAlignment="Center"/>
                 <Button 
                     Text="Acceder"
+                    BackgroundColor="{StaticResource PrimaryAccentColor}"
+                    TextColor="White"
                     Command="{Binding LoginCommand}"/>
             </StackLayout>
         </ScrollView>

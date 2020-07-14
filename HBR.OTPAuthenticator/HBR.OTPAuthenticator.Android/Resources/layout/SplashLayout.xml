@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" style="@style/LaunchScreen.MainContainer">
+     <ImageView
+        style="@style/LaunchScreen.BrandLogo"/>
+
+    <TextView
+        android:id="@+id/launch_screen_brand_name"
+        style="@style/LaunchScreen.AppBrandName"/>
+</RelativeLayout>

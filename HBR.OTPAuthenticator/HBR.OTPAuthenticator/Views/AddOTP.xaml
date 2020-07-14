@@ -40,16 +40,17 @@
                     Padding="0,8,0,15">
                     <Switch
                         IsToggled="{Binding TimeBased}"
-                        OnColor="{StaticResource PrimaryAccentColor}"
-                        ThumbColor="{StaticResource PrimaryAccentColor}"></Switch>
+                        OnColor="{StaticResource PrimaryColor}"
+                        ThumbColor="{StaticResource PrimaryColor}"></Switch>
                     <Label
                         Text="{x:Static resources:StringResources.TimeBased}">
                     </Label>
                 </StackLayout>
                 <Button 
                     Command="{Binding AddOtpCommand}"
-                    Text="{x:Static resources:StringResources.Add}">
-
+                    Text="{x:Static resources:StringResources.Add}"
+                    BackgroundColor="{StaticResource PrimaryAccentColor}"
+                    TextColor="White">
                 </Button>
             </StackLayout>
         </ScrollView>
