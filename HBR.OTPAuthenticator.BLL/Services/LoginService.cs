@@ -1,4 +1,5 @@
-﻿using HBR.OTPAuthenticator.BLL.Models;
+﻿using HBR.OTPAuthenticator.BLL.Components;
+using HBR.OTPAuthenticator.BLL.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,30 +12,11 @@ namespace HBR.OTPAuthenticator.BLL.Services
     {
         private readonly SQLiteService SqliteService;
         private SemaphoreSlim ConnectionMutex { get; } = new SemaphoreSlim(1, 1);
+        private static string secretIV = "20AuthOTPHbrSoft20";
 
         public LoginService()
         {
             SqliteService = new SQLiteService();
-        }
-
-        public async Task<bool> Login(string Code)
-        {
-            bool result = false;
-            await ConnectionMutex.WaitAsync();
-            var connection = await SqliteService.GetConnectionAsync();
-            var LoginInformation = await connection.Table<Login>().FirstOrDefaultAsync();
-
-            if(LoginInformation != null)
-            {
-                var secret = Convert.FromBase64String(LoginInformation.DbEncryptedSecret);
-                var iv = Convert.FromBase64String(LoginInformation.DbEncryptedSecretIV);
-                LoginInformation.SecretBytes = SqliteService.Decrypt(secret, iv);
-
-                result = LoginInformation.SecretCode == Code;
-            }
-
-            ConnectionMutex.Release();
-            return result;
         }
 
         public async Task<Login> GetLoginInformationAsync()
@@ -46,9 +28,7 @@ namespace HBR.OTPAuthenticator.BLL.Services
 
             if (LoginInformation != null)
             {
-                var secret = Convert.FromBase64String(LoginInformation.DbEncryptedSecret);
-                var iv = Convert.FromBase64String(LoginInformation.DbEncryptedSecretIV);
-                LoginInformation.SecretBytes = SqliteService.Decrypt(secret, iv);
+                LoginInformation.SecretCode = Encryptor.SimpleDecryptWithPassword(LoginInformation.DbEncryptedSecret, secretIV);
 
                 loginInfo = LoginInformation;
             }
@@ -59,9 +39,7 @@ namespace HBR.OTPAuthenticator.BLL.Services
 
         public async Task<int> InsertOrReplaceAsync(Login input)
         {
-            var secret = SqliteService.Encrypt(input.SecretBytes, out var iv);
-            input.DbEncryptedSecret = Convert.ToBase64String(secret);
-            input.DbEncryptedSecretIV = Convert.ToBase64String(iv);
+            input.DbEncryptedSecret = Encryptor.SimpleEncryptWithPassword(input.SecretCode, secretIV);
 
             await ConnectionMutex.WaitAsync();
             var connection = await SqliteService.GetConnectionAsync();
