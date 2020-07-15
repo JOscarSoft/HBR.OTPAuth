@@ -22,12 +22,16 @@ namespace HBR.OTPAuthenticator.ViewModels
         public LoginViewModel()
         {
             service = new LoginService();
+            LoadLoginInformation();
+        }
+
+        private async void LoadLoginInformation()
+        {
+            loginInformation = await service.GetLoginInformationAsync();
         }
 
         public async void VerifyLoginInformation()
         {
-            loginInformation = await service.GetLoginInformationAsync();
-
             if (loginInformation != null)
             {
                 if (loginInformation.UseBiometricAuth)
